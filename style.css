@@ -584,5 +584,14 @@ justify-content: center;
    .presentacion{
     width: 80%;
    }
+
+  .presentacion img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    right: -60px;
+    top: -108px;
+   }
  
 }
