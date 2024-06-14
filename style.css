@@ -551,6 +551,12 @@ justify-content: center;
     margin: 7px;
   }
 
+  .descripcion{
+    display:flex;
+    flex-direction:column;
+  }
+
+  
   .descripcion p{
     font-weight: 600;
     text-align: center;
