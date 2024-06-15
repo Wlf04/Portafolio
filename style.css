@@ -595,6 +595,7 @@ justify-content: center;
 
   .articles figure img {
     height:50%;
+    margin-bottom:2px;
 }
 
   .articles article img{
