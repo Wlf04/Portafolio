@@ -592,5 +592,7 @@ justify-content: center;
     right: 130px;
     top: 75px;
    }
- 
+
+  .articles figure img {
+    height:50%;
 }
