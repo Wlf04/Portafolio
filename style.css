@@ -595,6 +595,7 @@ justify-content: center;
 
 .articles figure img {
   height:10px;
+  overflow:unset;
 }
 
 }
