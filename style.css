@@ -593,6 +593,10 @@ justify-content: center;
     top: 75px;
    }
 
-   .articles figure  {
-    padding-bottom:1px
+.articles figure img {
+  height:50%
+}
+
+
+
 }
