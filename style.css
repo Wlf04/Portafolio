@@ -596,8 +596,7 @@ justify-content: center;
 .articles figure img {
   display:flex;
   justify-content:center;
-  max-height:80%;
-  max-weight:50%;
+  max-height:110px;
 }
 
 }
