@@ -594,12 +594,12 @@ justify-content: center;
    }
 
 .articles figure img {
-  display:flex;
-  justify-content:center;
+  
   max-height:110px;
 }
   .articles figure{
     height:70%;
-
+   display:flex;
+    justify-content:center;
 }
 }
