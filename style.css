@@ -598,5 +598,8 @@ justify-content: center;
   justify-content:center;
   max-height:110px;
 }
+  .articles figure{
+    height:50%;
 
+}
 }
