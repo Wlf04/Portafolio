@@ -595,8 +595,8 @@ justify-content: center;
 
 .articles figure img {
   display:flex;
-  justify-item:center;
-  max-height:90px;
+  justify-content:center;
+  max-height:80%;
 }
 
 }
