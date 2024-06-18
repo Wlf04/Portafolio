@@ -594,7 +594,9 @@ justify-content: center;
    }
 
 .articles figure img {
-  max-height:80px;
+  display:flex;
+  justify-item:center;
+  max-height:90px;
 }
 
 }
