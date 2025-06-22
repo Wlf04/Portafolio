@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 - Page Not Found</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #1e1e2f, #0d0d1a);
+      color: #f0f0f0;
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .background-lines {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.imgur.com/7b1YFPR.png'); /* Puedes reemplazar con el gráfico de fondo que uses */
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .content {
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 8rem;
+      color: #5a96f0;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      color: #cfcfcf;
+      padding: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      background-color: #347ae2;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px #1a49a180;
+    }
+
+    a:hover {
+      background-color: #2667b1;
+      box-shadow: 0 0 20px #5a96f0;
+      color: white;
+    }
+
+    .cube {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(145deg, #2667b1, #5a96f0);
+      position: absolute;
+      bottom: 75%;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0) rotate(45deg); }
+      50% { transform: translateX(-50%) translateY(-20px) rotate(45deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-lines"></div>
+  <div class="content">
+    <h1>404</h1>
+    <p>Oops... Página no encontrada</p>
+    <a href="index.html">Volver al inicio</a>
+  </div>
+  <div class="cube"></div>
+</body>
+</html>

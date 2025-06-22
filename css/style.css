@@ -1,0 +1,905 @@
+/* ===================================================================
+   TABLA DE CONTENIDOS
+   ===================================================================
+   1. Variables CSS (Colores, Fuentes)
+   2. Estilos Base y Reset (body, h1, p, a)
+   3. Layout General y Clases Reutilizables (.container)
+   4. Barra de Navegación
+   5. Sección de Presentación
+   6. Sección de Proyectos
+   7. Sección de Skills y Certificaciones
+   8. Footer y Redes Sociales
+   9. Estilos Específicos de Páginas (Proyectos, Certs, etc.)
+   10. Media Queries (Diseño Responsivo)
+   =================================================================== */
+
+
+/* ===================================================================
+   1. Variables CSS
+   =================================================================== */
+:root {
+    /* Colores Principales */
+    --color-primario: #1150ab;
+    --color-secundario: rgb(35, 96, 227);
+    --color-fondo-transparente: rgba(120, 124, 146, 0.4);
+    --color-fondo-oscuro: #131313;
+    --color-fondo-claro: #e4e2dd;
+    
+    /* Colores de Texto */
+    --texto-claro: aliceblue;
+    --texto-oscuro: #000000;
+    --texto-blanco-transparente: rgba(255, 255, 255, 0.829);
+    --texto-destacado: burlywood;
+    
+    /* Fuentes */
+
+    --fuente-titulos: 'Poppins', sans-serif;
+    --fuente-cuerpo: 'Lato', sans-serif;
+}
+
+
+/* ===================================================================
+   2. Estilos Base y Reset
+   =================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(../images/tech.webp); /* RUTA CORREGIDA A LA CARPETA ASSETS */
+    backdrop-filter: blur(2px);
+    font-family: var(--fuente-cuerpo);
+}
+
+/* Estilos base para enlaces */
+a {
+    text-decoration: none;
+    color: var(--texto-claro);
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* ===================================================================
+   3. Layout General y Clases Reutilizables
+   =================================================================== */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: transparent; /* Simplificado desde rgba(129, 183, 237, 0) */
+}
+
+
+/* ===================================================================
+   4. Barra de Navegación
+   =================================================================== */
+.navigation ul {
+    display: flex;
+    gap: 20px;
+}
+
+.navigation li {
+    list-style: none;
+}
+
+.navigation a {
+    font-size: 20px;
+    color: var(--texto-blanco-transparente);
+}
+
+.navigation a:hover {
+    color: var(--color-primario);
+}
+
+/* Oculto por defecto en desktop, visible en mobile */
+.navigation .proyectoos {
+    display: none;
+}
+
+
+/* ===================================================================
+   5. Sección de Presentación
+   =================================================================== */
+.presentacion {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;     
+    justify-content: center;  
+    text-align: center;       
+    max-width: 500px;             
+    margin: 5rem auto;           
+    aspect-ratio: 1 / 1; 
+    gap: 25px;                  
+    padding: 2rem;              
+    border-radius: 30px;        
+    background-color: var(--color-fondo-transparente);
+}
+
+
+.presentacion h1 {
+    color: var(--texto-destacado);
+    margin-bottom: 0px;
+}
+
+.presentacion img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    padding: 34px;
+}
+
+.descripcion p {
+    padding: 12px;
+    font-weight: 600;
+    text-align: center;
+    color: #e3dede;
+}
+
+.descripcion i {
+    font-size: 20px;
+    color: #f2f2f2;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.github i {
+    box-shadow: 2px 3px 5px var(--texto-oscuro);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.github i:hover {
+    transform: scale(1.5);
+    color: #151515;
+    box-shadow: 2px 3px 5px rgb(250, 247, 247);
+}
+
+
+.descargar {
+    display: flex;
+    align-items: center;
+    background: antiquewhite;
+    gap: 5px;
+    outline: none;
+    border: none;
+    padding: 8px;
+    border-radius: 3px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.descargar i {
+    color: green;
+}
+
+.descargar:active {
+    transform: scale(1.2);
+}
+
+/* --- Estilos para Botones de Acción (CV y Contacto) --- */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espacio entre los botones */
+    margin-top: 25px; /* Espacio debajo de tu título */
+}
+
+/* Estilo para el nuevo botón de contacto */
+.contact-button {
+    background-color: var(--color-primario); /* Usa el color primario de tus variables */
+    color: var(--texto-claro);
+    padding: 8px 15px;
+    border-radius: 3px;
+    font-weight: 600;
+    border: 2px solid var(--color-primario);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.contact-button:hover {
+    background-color: transparent;
+    color: var(--color-primario);
+    transform: scale(1.05);
+}
+
+
+/* ===================================================================
+   6. Sección de Proyectos (en la página principal)
+   =================================================================== */
+.projects {
+    background-color: rgba(35, 96, 227, 0.447); /* Usar variable si este color se repite */
+    display: flex;
+    align-items: center;
+    gap: 14rem;
+}
+
+.projects h1 {
+    color: var(--texto-claro);
+    padding: 15px;
+    margin-left: 200px;
+    border-style: dashed;
+}
+
+.projects .links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects .links nav {
+    padding: 25px;
+}
+
+.projects .links a {
+    display: flex;
+    margin-bottom: 5px;
+    margin-top: 17px;
+    padding: 10px;
+    background: rgba(136, 137, 136, 0.2);
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.projects .links a:hover {
+    background: rgba(94, 95, 94, 0.2);
+    color: rgb(77, 93, 186);
+}
+
+.projects .boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+
+/* ===================================================================
+   7. Sección de Skills y Certificaciones
+   =================================================================== */
+.skills {
+    margin-top: 3rem;
+    padding: 73px;
+    color: var(--texto-claro);
+    background: var(--texto-oscuro);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skills h1 {
+    text-align: center;
+}
+
+.skills .iconitos {
+    font-size: 40px;
+    border-bottom: 1px dashed;
+    color: bisque;
+}
+
+.skills .iconitos-2 i {
+    padding: 15px;
+    font-size: 20px;
+    margin: 7px;
+}
+
+/* Botón Certificaciones */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.brutalist-button {
+    /* Estilos del botón brutalista... */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--texto-oscuro);
+    border-radius: 12px;
+    padding: 0;
+    color: var(--texto-oscuro);
+    font-weight: bold;
+    position: relative;
+    box-shadow: 4px 4px 0px var(--texto-oscuro);
+    height: 110px;
+    width: 110px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brutalist-button.openai {
+    background-color: #356854; /* El color verde que se perdió */
+}
+
+.brutalist-button.openai::before {
+    background-color: #316b58;
+}
+
+.brutalist-button:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0px var(--texto-oscuro);
+}
+
+.brutalist-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--texto-oscuro);
+}
+
+.openai-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: #0f1715;
+}
+
+.openai-icon {
+    width: 54px;
+    height: 54px;
+    fill: #ffffff;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Animación de giro */
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.brutalist-button:hover .openai-logo {
+    animation: spin 5s linear infinite;
+    width: 50px;
+    height: 50px;
+    top: 28%;
+}
+
+.brutalist-button:hover .openai-icon {
+    transform: scale(0.6);
+}
+
+.button-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.3;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    z-index: 2;
+    position: absolute;
+    bottom: 18px;
+    left: 0;
+    right: 0;
+    color: #d3d3d3;
+}
+
+.button-text span:first-child {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.button-text span:last-child {
+    font-size: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #d6cbbf;
+}
+
+.brutalist-button:hover .button-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* ===================================================================
+   8. Footer y Redes Sociales
+   =================================================================== */
+.social .redes {
+    background-color: rgba(35, 96, 227, 0.447);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 15px;
+    background: rgba(150, 164, 176, 0.44);
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+}
+
+.redes a:hover {
+    background: rgba(12, 145, 246, 0.1);
+    color: rgb(226, 234, 59);
+}
+
+footer .raya {
+    background-color: var(--texto-oscuro);
+    color: var(--texto-claro);
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+
+/* ===================================================================
+   9. Estilos Específicos de Páginas
+   =================================================================== */
+
+/* --- Estilos para la PÁGINA DE PROYECTOS (articles) --- */
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+    justify-content: center;
+    max-width: 75rem;
+    gap: 1.5rem;
+}
+.articles article {
+    max-width: 20rem;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease;                
+}
+
+.articles article h2 {
+    font-family: var(--fuente-titulos); 
+    text-align: center;
+    margin: 0 0 0.5rem 0; 
+    font-size: 1.5rem;   
+    color: #2c3e50;     
+}
+
+.articles article p {
+    font-family: var(--fuente-cuerpo); 
+    font-size: 1rem;                  
+    line-height: 1.6;                 
+    color: #555;                       
+    margin-bottom: 1rem;
+}
+
+.articles article:hover img {
+    transform: scale(1.5);
+}
+.article-preview {
+    padding: 1.5rem;
+}
+.articles figure {
+    overflow: hidden;
+}
+.articles figure img {
+    width: 100%; /* Cambiado de max-width a width */
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+}
+
+.techno {
+    display: flex;
+    flex-wrap: wrap;     /* Permite que los iconos pasen a la siguiente línea si no caben */
+    gap: 8px;            /* Espacio entre cada etiqueta */
+    margin-top: 1rem;    /* Espacio para separar las etiquetas de la descripción */
+    padding-top: 1rem;   /* Espacio extra */
+    border-top: 1px solid #f0f0f0; /* Una línea sutil de separación */
+}
+
+/* Estilo base para TODAS las etiquetas/iconos */
+.techno i {
+    font-size: 1rem;         
+    padding: 6px 12px;       
+    background-color: #f1f3f5; 
+    border-radius: 15px;       
+    transition: transform 0.2s ease;
+    display: inline-block;    
+}
+
+.techno i:hover {
+    transform: translateY(-2px); /* Un pequeño salto hacia arriba al pasar el mouse */
+}
+
+
+.techno .fa-html5    { color: #e34c26; }
+.techno .fa-css3-alt { color: #264de4; }
+.techno .fa-js       { color: #323330; background-color: #f0db4f; } 
+.techno .fa-sass     { color: #c69; }
+.techno .fa-react    { color: #61DBFB; }
+
+
+/* --- Estilos para la PÁGINA DE CERTIFICACIONES (wall) --- */
+.wall {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+.wall h1, .wall p {
+    color: white;
+    text-align: center;
+}
+
+.wall h2 {
+    color: rgb(224, 186, 104);
+    font-family: var(--fuente-titulos);
+    margin-bottom: 10px;
+}
+.wall ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.wall ul li {
+    display: inline-block;
+    background: rgba(210, 207, 207, 0.1);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 8px;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+.wall ul li:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+.wall ul li img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.wall img.enlarged {
+    transform: scale(4);
+    z-index: 1000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2.5); /* Mejorado para centrar */
+    max-width: 90%;
+    max-height: 90%;
+    cursor: zoom-out;
+}
+
+/* Estilo para los botones "Verificar" */
+.wall nav ul li a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+
+    /* --- ¡Aquí está el cambio! --- */
+    background-color: #28a745;  /* Un verde vibrante y accesible */
+    color: white;               /* Asegura que el texto "verify" sea blanco y legible */
+}
+
+/* Efecto al pasar el mouse */
+.wall nav ul li a:hover {
+    background-color: #218838; /* Un verde un poco más oscuro */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Estilo para los enlaces de certificados "EN PROGRESO" */
+.wall nav ul li a.disabled-link {
+    background-color: #6c757d;  /* Un color gris para indicar que está inactivo */
+    cursor: not-allowed;        /* Cambia el cursor para mostrar que no es clickeable */
+}
+
+.wall nav ul li a.disabled-link:hover {
+    background-color: #5a6268;
+    transform: none; /* Quitamos el efecto de levantar */
+    box-shadow: none;
+}
+
+
+/* ===================================================================
+   10. Media Queries (Diseño Responsivo)
+   =================================================================== */
+
+/* --- Breakpoint para tablets y móviles grandes --- */
+@media screen and (max-width: 768px) {
+    /* Aquí irían estilos para pantallas más pequeñas si los hubiera */
+}
+
+
+/* --- Breakpoint para móviles --- */
+@media screen and (max-width: 600px) {
+    .presentacion {
+        flex-direction: column;
+        gap: 0px;
+        margin: 1rem;
+        margin-top: 5rem;
+        padding: 1rem;
+        width: 90%;
+        position: relative; /* Para posicionar la imagen y el CV */
+    }
+
+    .presentacion img {
+        width: 100px;
+        height: 100px;
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .titulo {
+        justify-content: center;
+    }
+    
+    .curriculum {
+        position: static; /* Quitamos el posicionamiento absoluto */
+        margin-top: 1rem;
+    }
+
+    .projects {
+        display: block;
+        gap: 0;
+    }
+
+    .projects h1 {
+        margin: 0;
+        text-align: center;
+        border-style: none;
+    }
+
+    .projects .relleno {
+        display: none; /* Oculta el cubo 3D */
+    }
+
+    .button-container {
+        padding: 40px;
+    }
+    
+    /* Menú Hamburguesa */
+    .navigation {
+        position: fixed;
+        inset: 0;
+        width: 0;
+        background: rgba(50, 50, 50, 0.95);
+        transition: 0.5s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+    .navigation.open {
+        width: 100%;
+    }
+   
+    .navigation ul {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .navigation ul li a .text {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .navigation.open ul li a .text {
+        opacity: 1;
+        visibility: visible;
+    }
+    .navigation .proyectoos{
+        display: block; /* Muestra el enlace a proyectos en móvil */
+    }
+}
+
+/* ===================================================================
+   11. ESTILOS PÁGINA DE DISEÑO 
+   =================================================================== */
+
+.design-header {
+    width: 100%;
+    padding: 20px 40px; /* 20px de espacio arriba/abajo, 40px a los lados */
+    background-color: var(--color-fondo-claro, #e4e2dd);
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+
+.header-logo {
+    width: 60px; /* Tamaño del logo */
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.1); /* Efecto sutil para agrandar el logo al pasar el mouse */
+}
+/* Contenedor principal para la página de diseño para evitar conflictos */
+.design-page-wrapper {
+    background-color: var(--color-fondo-claro, #e4e2dd); /* Usamos el color de fondo claro que definimos */
+    color: var(--color-primario, #1150ab);
+    font-family: 'Courier New', monospace; /* Esta página usa una fuente diferente */
+}
+
+.design-page-wrapper .header img {
+    width: 100%;
+    height: auto;
+}
+
+.design-page-wrapper .content p {
+    font-size: 20px;
+    padding: 2rem 1rem;
+    color: var(--color-primario, #1150ab);
+    text-align: center;
+    font-family: var(--fuente-titulos, "Glass Antiqua", cursive);
+}
+
+.design-page-wrapper .container3 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+    text-align: center;
+}
+
+.design-page-wrapper .tshirt {
+    flex: 1;
+    min-width: 200px;
+    padding: 1rem;
+}
+
+.design-page-wrapper .tshirt img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.design-page-wrapper .tshirt img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.design-page-wrapper .center-text {
+    flex: 1;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.8;
+    padding: 0 20px;
+    min-width: 250px;
+}
+
+.design-page-wrapper .center-text a {
+    color: var(--color-primario);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Estilos para el Footer específico de la Página de Diseño */
+.design-page-wrapper .footer {
+    background-color: var(--color-fondo-claro, #e4e2dd); /* Fondo claro a juego con la página */
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 2px solid #ccc; /* Un borde superior para separarlo */
+}
+
+.design-page-wrapper .footer .logo {
+    width: 84px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.design-page-wrapper .footer .footer-text {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #4d69d6; /* Un color de texto más suave */
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .design-page-wrapper .container3 {
+        flex-direction: column;
+    }
+    .design-page-wrapper .tshirt {
+        margin-bottom: 20px;
+    }
+}
+
+/* --- Estilos para la Galería Bento --- */
+.bento-gallery {
+    padding: 4rem 2rem; /* Espacio arriba/abajo y a los lados */
+    background-color: var(--color-fondo-claro, #e4e2dd);
+}
+
+.bento-gallery h2 {
+    text-align: center;
+    font-family: var(--fuente-titulos, "Glass Antiqua", cursive);
+    color: var(--color-primario, #1150ab);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.bento-grid {
+    display: grid;
+    /* Crea una cuadrícula de 4 columnas de igual tamaño */
+    grid-template-columns: repeat(4, 1fr);
+    /* Define una altura base para las filas automáticas */
+    grid-auto-rows: 250px; 
+    gap: 1rem; /* Espacio entre las imágenes */
+    max-width: 1200px; /* Ancho máximo de la galería */
+    margin: 0 auto; /* Centra la galería */
+}
+
+.bento-item {
+    border-radius: 12px;
+    overflow: hidden; /* Asegura que la imagen no se salga de los bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.bento-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ¡CRÍTICO! Hace que la imagen llene el espacio sin deformarse */
+    transition: transform 0.4s ease;
+}
+
+.bento-item:hover img {
+    transform: scale(1.05); /* Efecto de zoom sutil al pasar el mouse */
+}
+
+/* Clases para controlar el tamaño de los items */
+.bento-item.wide {
+    grid-column: span 2; /* Hace que el item ocupe 2 columnas */
+}
+
+.bento-item.tall {
+    grid-row: span 2; /* Hace que el item ocupe 2 filas */
+}
+
+.bento-item.large-square {
+    grid-column: span 2; /* Ocupa 2 columnas */
+    grid-row: span 2;    /* Ocupa 2 filas */
+}
+
+/* --- Media Query para hacerla responsive en móviles --- */
+@media screen and (max-width: 768px) {
+    .bento-grid {
+        /* En pantallas pequeñas, la hacemos de 2 columnas */
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px; /* Ajustamos la altura de las filas */
+    }
+}
