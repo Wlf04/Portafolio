@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="icon" href="assets/images/icon.svg">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+    <script src="https://kit.fontawesome.com/db173a3adc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+   <!--
+
+   
+     <div id="password-gate">
+        <div class="terminal">
+            <h1>ACCESO REQUERIDO</h1>
+            <p>Se requiere autenticación para acceder a este sistema.</p>
+            <form id="password-form">
+                <label for="password-input">> Contraseña:</label>
+                <input type="password" id="password-input" autofocus>
+                <span class="cursor">_</span>
+            </form>
+            <p id="error-message"></p>
+        </div>
+    </div>
+    <div id="main-content" class="hidden">
+      -->
+        
+    <canvas id="matrix-bg"></canvas>
+
+    <main class="container">
+        <section class="intro">
+            <div class="intro-image">
+                <img src="assets/modelo.webp" alt="Oscar Boza Martinez profile picture">
+            </div>
+            <div class="intro-text">
+                <h1>Oscar Boza Martinez</h1>
+                <p>In Tech we Trust</p>
+                <div class="action-buttons">
+                    <button class="descargar" onclick="location.href='#'">Download CV <i class="fa-solid fa-file-arrow-down"></i></button>
+                    <a href="#contact" class="contact-button">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+       <section class="gallery">
+    <h2>PROJECTS</h2>
+    <div class="project-categories">
+         <a href="coming.html">Cyber Security</a>
+         <a href="projects.html">Web Developer</a>
+         <a href="diseño.html">Design</a>
+         <a href="coming.html">Blogs</a>
+    </div>
+
+    <div class="project-previews">
+        <div class="preview-card">
+           <img src="assets/images/grupo.png" alt="Previsualización del Proyecto 1" class="preview-image">
+            <h3>GRUPO</h3>
+            <p>New conections.</p>
+            <a href="coming.html">Ver Proyecto</a>
+        </div>
+        <div class="preview-card">
+            <img src="assets/images/ourhour.png" alt="Previsualización del Proyecto 1" class="preview-image">
+            <h3>OURHOUR</h3>
+            <p>Ready to get best deals.</p>
+            <a href="coming.html">Ver Proyecto</a>
+        </div>
+    </div>
+    <div class="all-projects-link">
+         <a href="projects.html" class="cert-link">ALL PROJECTS</a>
+    </div>
+    <div class="gallery-highlight">
+        <model-viewer class="model" src="assets/models/cubo.glb" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
+    </div>
+</section>
+
+
+
+<section class="services-link-section">
+    <a href="servicios.html" class="cert-link">
+        Servicios <i class="fa-solid fa-arrow-right"></i>
+    </a>
+</section>
+
+      <section class="focus">
+    <h2>SKILLS</h2>
+    <div class="focus-grid">
+        <span ><i class="fa-brands fa-html5" ></i></span>
+        <span><i class="fa-brands fa-js"></i></span>
+        <span><i class="fa-brands fa-css3-alt"></i></span>
+        <span><i class="fa-brands fa-sass"></i></span>
+        <span><i class="fa-brands fa-figma"></i></span>
+        <span><i class="fa-brands fa-wordpress"></i></span>
+        <span><i class="fa-brands fa-git-alt"></i></span>
+        <span><i class="fa-brands fa-bootstrap"></i></span>
+        <span><i class="fa-brands fa-react"></i></span>
+        <span><i class="fa-brands fa-shopify"></i></span>
+        <span><i class="fa-solid fa-palette"></i></span>  <span>IA</span> </div>
+</section>
+
+        <section class="certifications">
+            <div class="cert-text">
+                <h3>Certifications</h3>
+                <p>My Certifications</p>
+            </div>
+            <a href="certificaciones.html" class="cert-link">
+                <div class="button-content">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="openai-icon"><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                    <span>My Certifications</span>
+                </div>
+            </a>
+        </section>
+
+        </div>
+
+        <footer class="contact" id="contact">
+            <h2>Social</h2>
+            <div class="contact-links">
+                 <a href="https://www.linkedin.com/in/oscar-martinez-718436308?trk=profile-badge"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                 <a href="https://github.com/Wlf04"><i class="fa-brands fa-github"></i> GitHub</a>
+                 <a href="mailto:oscarmartinez0498@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+                 <a href="#" id="share-button"><i class="fa-solid fa-share-nodes"></i> Share</a>
+            </div>
+            <div class="footer-bottom">
+                <p>©oscar-martinez-<span id="year"></span></p>
+            </div>
+        </footer>
+
+    </main>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+     
+    <script src="/assets/js/matrix.js"></script>
+</body>
+</html>
