@@ -1,0 +1,1088 @@
+/* --- Global Styles & Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+    --green-neon: #0dff00;
+    --off-white: #e0e0e0;
+    --dark-bg: #000000;
+    --border-color: rgba(255, 255, 255, 0.2);
+    --font-main: 'Space Mono', monospace;
+}
+
+#matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Clave para ponerlo detrás de todo */
+}
+
+
+/* --- Estilos para el Menú de Hamburguesa --- */
+
+.navigation {
+    position: fixed; /* Lo fija en la pantalla */
+    top: 20px;
+    right: 20px;
+    z-index: 100; /* Se asegura que esté por encima de otros elementos */
+}
+
+.menuToggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Crea las 3 líneas del icono de hamburguesa */
+.menuToggle::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: var(--green-neon);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 0 var(--green-neon);
+    transition: 0.5s;
+}
+.menuToggle::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: var(--green-neon);
+    transform: translateY(10px);
+    transition: 0.5s;
+}
+
+/* Oculta el menú (la lista <ul>) por defecto */
+.navigation ul {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background: #111; /* Un fondo oscuro para el menú desplegado */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    transform: translateX(100%); /* Lo mueve fuera de la pantalla */
+    transition: transform 0.5s ease-in-out;
+}
+
+.navigation ul li a {
+    color: var(--green-neon);
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    display: block;
+    text-decoration: none;
+}
+
+/* --- Estilos para el Menú Abierto (.active) --- */
+
+/* Transforma la hamburguesa en una 'X' */
+.navigation.active .menuToggle::before {
+    transform: translateY(0px) rotate(45deg);
+    box-shadow: 0 0 0 var(--green-neon);
+}
+.navigation.active .menuToggle::after {
+    transform: translateY(0px) rotate(-45deg);
+}
+
+/* Muestra el menú */
+.navigation.active ul {
+    transform: translateX(0%);
+}
+
+
+/* --- Estilos para la Pantalla de Contraseña --- */
+
+/* 
+Oculta el contenido principal por defecto 
+
+#main-content.hidden {
+    display: none;
+}
+
+#password-gate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-bg);
+    color: var(--green-neon);
+    font-family: var(--font-main);
+    z-index: 200;
+}
+
+#password-gate .terminal {
+    max-width: 500px;
+    text-align: left;
+}
+
+#password-gate h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#password-gate p {
+    color: var(--off-white);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#password-gate label {
+    margin-right: 10px;
+}
+
+#password-gate input[type="password"] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--green-neon);
+    color: var(--green-neon);
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    outline: none;
+    width: 200px;
+}
+
+#password-gate .cursor {
+    animation: blink 1s step-end infinite;
+}
+
+#error-message {
+    color: #ff4d4d; 
+    margin-top: 1rem;
+    text-align: center;
+    height: 20px;
+}
+*/
+
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--off-white);
+    font-family: var(--font-main);
+    font-size: 16px;
+}
+
+a {
+    color: var(--green-neon);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+h1, h2, h3 {
+    color: var(--green-neon);
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+section, footer {
+    margin-bottom: 6rem;
+}
+
+/* --- Section 1: Introduction --- */
+.intro {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem; /* Added margin to give space at the top */
+}
+
+.intro-image img {
+    width: 100%;
+    border: 1px solid var(--green-neon);
+    padding: 6px;
+    display: block;
+    height: 160px;
+}
+
+.intro-text h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.intro-text p {
+    line-height: 1.6;
+    max-width: 50ch;
+    margin-bottom: 1.5rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.action-buttons .descargar,
+.action-buttons .contact-button {
+    background-color: transparent;
+    border: 1px solid var(--green-neon);
+    color: var(--green-neon);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.action-buttons .descargar:hover,
+.action-buttons .contact-button:hover {
+    background-color: var(--green-neon);
+    color: var(--dark-bg);
+}
+
+/* --- Section 2: Project Gallery --- */
+.gallery h2 {
+    margin-bottom: 1.5rem;
+}
+
+.project-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.gallery-highlight {
+    background-color: var(--green-neon);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.gallery-highlight .model {
+    width: 100%;
+    height: 35vh;
+    background-color: #f0f0f0;
+}
+
+.all-projects-link {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+/* --- Hover Effect for Project Categories --- */
+.project-categories a {
+    transition: text-shadow 0.3s ease; /* Makes the glow appear smoothly */
+}
+
+.project-categories a:hover {
+    text-shadow: 0 0 8px var(--green-neon); /* Adds the neon glow effect */
+}
+
+/* --- Generic Link Button Style (for All Projects & Certs) --- */
+.cert-link {
+    border: 1px solid var(--green-neon);
+    padding: 0.8rem 2rem; /* Padding aumentado */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    display: inline-block;
+}
+.cert-link:hover {
+    background-color: var(--green-neon);
+    color: var(--dark-bg);
+}
+
+/* --- Section 3: Skills --- */
+.focus h2 {
+    margin-bottom: 1.5rem;
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+.focus-grid span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    border: 1px solid var(--border-color);
+    font-size: 2rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.focus-grid span:hover {
+    background-color: var(--green-neon);
+    color: var(--dark-bg);
+}
+
+/* Contenedor para el nuevo botón de servicios */
+.services-link-section {
+    text-align: center;
+    margin: 2rem 0; /* Espaciado vertical */
+}
+
+/* --- Generic Link Button Style (UPDATED) --- */
+.cert-link {
+    display: inline-flex; /* Permite alinear el texto y el icono */
+    align-items: center; /* Centra verticalmente el texto y el icono */
+    gap: 0.5rem; /* Espacio entre el texto y el icono */
+    border: 1px solid var(--green-neon);
+    padding: 0.8rem 2rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* --- Section 4: Certifications --- */
+.certifications {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--green-neon);
+    border-bottom: 1px solid var(--green-neon);
+    padding: 1.5rem 0;
+}
+
+.cert-text h3 {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.cert-text p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.certifications .cert-link {
+    padding: 0;
+    border: 1px solid var(--green-neon);
+}
+
+.certifications .cert-link:hover .openai-icon {
+    fill: var(--dark-bg);
+}
+
+.button-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.5rem 1.5rem;
+}
+
+.openai-icon {
+    width: 16px;
+    height: 16px;
+    fill: var(--green-neon);
+    transition: fill 0.2s ease-in-out;
+}
+
+/* --- Section 5: Footer / Social --- */
+.contact {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.contact-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    .intro {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .intro-image {
+        margin: 0 auto;
+        width: 150px;
+    }
+
+    .action-buttons {
+        justify-content: center;
+    }
+
+    .certifications {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+
+/* --- Styles for Project Preview Section --- */
+.project-previews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.preview-card {
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    text-align: center;
+}
+
+.preview-image {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho de la tarjeta */
+    height: 150px; /* Mantiene la altura fija que ya tenías */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    margin-bottom: 1rem;
+}
+
+.preview-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.preview-card p {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.preview-card a {
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+/* --- Adjustments for mobile --- */
+@media (max-width: 600px) {
+    .project-previews {
+        grid-template-columns: 1fr; /* Stacks previews on mobile */
+    }
+}
+
+/* --- Estilos para la Página "Coming Soon" Hacker --- */
+
+.hacker-terminal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+    color: var(--green-neon);
+    font-family: var(--font-main);
+}
+
+.hacker-terminal p {
+    margin-bottom: 0.5rem;
+}
+
+.terminal-header {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.log-ok {
+    color: #4caf50; /* Un verde diferente para el status "OK" */
+}
+
+.status-message {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: var(--off-white);
+    max-width: 60ch;
+    line-height: 1.6;
+}
+
+.return-link {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { color: transparent; }
+    50% { color: var(--green-neon); }
+}
+
+/* --- Barra de Progreso Animada --- */
+.progress-bar {
+    width: 80%;
+    max-width: 400px;
+    height: 20px;
+    border: 1px solid var(--green-neon);
+    margin-top: 1rem;
+    padding: 2px;
+}
+
+.progress-bar-fill {
+    width: 0%;
+    height: 100%;
+    background-color: var(--green-neon);
+    animation: loading 5s ease-in-out forwards;
+}
+
+@keyframes loading {
+    0% { width: 0%; }
+    100% { width: 45%; } /* Se detiene antes del final para simular que está "cargando" */
+}
+
+/* --- Estilos para la Página de Proyectos --- */
+
+
+
+/* Fondo y fuente base para la página de proyectos */
+.proyectos {
+    background-color: var(--dark-bg);
+    color: var(--off-white);
+    font-family: var(--font-main);
+}
+
+/* --- Estilo para el Icono de Navegación Home --- */
+
+/* Contenedor del icono (el enlace <a>) */
+.main-header .main-nav a {
+    text-decoration: none; /* Quita el subrayado del link */
+    display: inline-block; /* Permite aplicar transformaciones */
+    padding: 0.5rem; /* Hace el área de click un poco más grande */
+}
+
+/* Estilo base del icono <i> */
+.main-header .main-nav a i {
+    color: var(--green-neon); /* Asegura que tenga el color verde neón */
+    font-size: 1.8rem; /* Aumenta el tamaño del icono */
+    transition: all 0.3s ease-in-out; /* Añade una transición suave para el efecto hover */
+    vertical-align: middle; /* Alinea mejor el icono verticalmente */
+}
+
+/* Centra la lista de navegación y quita los estilos por defecto */
+.main-header .main-nav ul {
+    list-style-type: none;  /* Quita los puntos (bullet points) */
+    display: flex;          /* Activa el layout flexible */
+    justify-content: center;/* Centra el contenido horizontalmente */
+    padding: 0;             /* Remueve el espaciado interior por defecto */
+    margin: 0;              /* Remueve el margen por defecto */
+}
+
+/* Efecto al pasar el ratón (hover) */
+.main-header .main-nav a:hover i {
+    transform: scale(1.2); /* Agranda un poco el icono */
+    text-shadow: 0 0 12px var(--green-neon); /* Le da un brillo neón */
+}
+
+/* Contenedor principal para la grilla de artículos */
+.articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Grilla responsive */
+    gap: 2rem; /* Espacio entre las tarjetas */
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Estilo de cada tarjeta de proyecto */
+.articles article {
+    background-color: rgba(255, 255, 255, 0.02); /* Fondo muy sutil */
+    border: 1px solid var(--border-color);
+    overflow: hidden; /* Asegura que la imagen no se salga de los bordes redondeados */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto de hover en las tarjetas */
+.articles article:hover {
+    transform: translateY(-8px);
+    border-color: var(--green-neon);
+    box-shadow: 0 0 15px rgba(13, 255, 0, 0.2);
+}
+
+/* Estilo de la imagen del proyecto */
+.articles article figure {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.articles article img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9; /* Mantiene una proporción consistente */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.articles article:hover img {
+    transform: scale(1.05); /* Sutil efecto de zoom en la imagen al hacer hover */
+}
+
+/* Contenido de texto debajo de la imagen */
+.articles .article-preview {
+    padding: 1.5rem;
+}
+
+.articles .article-preview h2 {
+    color: var(--green-neon);
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+}
+
+.articles .article-preview p {
+    color: var(--off-white);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Iconos de tecnología */
+.articles .techno {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Primero, damos un color base neutro a todos los iconos en la tarjeta */
+.articles .techno i {
+    color: #dcdcdc; /* Un gris claro para iconos sin color de marca */
+}
+
+/* Luego, especificamos el color de marca para cada icono */
+.articles .techno .fa-html5 { color: #E34F26; }    /* Naranja */
+.articles .techno .fa-css3-alt { color: #1572B6; } /* Azul */
+.articles .techno .fa-js { color: #F7DF1E; }       /* Amarillo */
+.articles .techno .fa-react { color: #61DAFB; }    /* Celeste */
+.articles .techno .fa-sass { color: #CC6699; }     /* Rosa */
+
+/* Adaptación de la navegación vieja (Recomendación abajo) */
+.proyectos .navigation ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    gap: 2rem;
+    background-color: #000;
+    border-bottom: 1px solid var(--border-color);
+}
+.proyectos .navigation a {
+    color: var(--green-neon);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+.proyectos .navigation a:hover {
+    text-decoration: underline;
+}
+
+/* --- Estilos para la Página de Certificaciones --- */
+
+/* Contenedor principal de la página */
+.wall {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    color: var(--off-white);
+    font-family: var(--font-main);
+}
+
+.wall h1,
+.wall > p {
+    text-align: center;
+}
+
+.wall h1 {
+    color: var(--green-neon);
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.wall > p {
+    font-size: 1.1rem;
+    margin-bottom: 4rem;
+    color: var(--off-white);
+}
+
+/* Grilla para las tarjetas de certificación */
+.wall nav ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estilo para cada tarjeta (cada <li>) */
+.wall nav li {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover para las tarjetas */
+.wall nav li:hover {
+    transform: translateY(-8px);
+    border-color: var(--green-neon);
+    box-shadow: 0 0 15px rgba(13, 255, 0, 0.2);
+}
+
+/* Imagen del certificado */
+.wall nav li img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain; /* 'contain' para que se vea el logo completo */
+    margin-bottom: 1.5rem;
+}
+
+/* Título del certificado */
+.wall nav li h2 {
+    color: var(--green-neon);
+    font-size: 1.3rem;
+    margin: 0 0 0.75rem 0;
+}
+
+/* Descripción del certificado */
+.wall nav li p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--off-white);
+}
+
+/* Botón para verificar */
+.wall nav li a {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    border: 1px solid var(--green-neon);
+    color: var(--green-neon);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.wall nav li a:hover {
+    background-color: var(--green-neon);
+    color: var(--dark-bg);
+}
+
+/* Estilo para los enlaces deshabilitados */
+.wall .disabled-link {
+    color: #666;
+    border-color: #444;
+    background-color: transparent;
+    pointer-events: none; /* Evita que sea clickeable */
+    opacity: 0.5;
+}
+
+/* --- Estilos para la Página de Servicios --- */
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.services-container h1 {
+    color: var(--green-neon);
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+    text-align: left;
+}
+
+.service-card {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--green-neon);
+    box-shadow: 0 0 15px rgba(13, 255, 0, 0.2);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--green-neon);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.service-card h2 {
+    color: var(--green-neon);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Hace que el párrafo crezca para alinear los botones */
+}
+
+.service-card ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+    flex-grow: 1; /* También ayuda a alinear los botones */
+}
+
+.service-card ul li {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.service-card ul li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--green-neon);
+}
+
+.service-cta {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--green-neon);
+    color: var(--green-neon);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    margin-top: auto; /* Empuja el botón al final de la tarjeta */
+}
+
+.service-cta:hover {
+    background-color: var(--green-neon);
+    color: var(--dark-bg);
+}
+
+/* Sección de Contacto */
+.contact-section {
+    padding: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-section h2 {
+    color: var(--green-neon);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: var(--green-neon);
+    color: var(--dark-bg);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.contact-button:hover {
+    background-color: #fff;
+    color: var(--dark-bg);
+    transform: scale(1.05);
+}
+
+/* --- Estilos para la Página de Blog --- */
+
+
+
+
+
+.blog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    font-family: var(--font-main);
+}
+
+.blog-container h1 {
+    color: var(--green-neon);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    letter-spacing: 2px;
+}
+
+/* --- Artículo Destacado --- */
+.featured-post {
+    margin-bottom: 4rem;
+}
+
+.featured-link {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.featured-link:hover {
+    border-color: var(--green-neon);
+    transform: translateY(-5px);
+}
+
+.featured-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.featured-content {
+    padding: 2rem;
+}
+
+.post-category {
+    color: var(--green-neon);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.featured-content h2 {
+    color: var(--off-white);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.post-excerpt {
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.post-meta {
+    display: flex;
+    gap: 1.5rem;
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.post-meta i {
+    margin-right: 0.5rem;
+    color: var(--green-neon);
+}
+
+/* --- Grilla de Posts --- */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.post-card {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--green-neon);
+}
+
+.post-card a {
+    text-decoration: none;
+}
+
+.post-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 1.5rem;
+}
+
+.post-content h3 {
+    color: var(--off-white);
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+    .featured-link {
+        grid-template-columns: 1fr; /* Apila la imagen y el texto en móvil */
+    }
+
+    .featured-content h2 {
+        font-size: 1.5rem;
+    }
+}
