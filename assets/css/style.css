@@ -809,6 +809,34 @@ footer .raya {
     font-weight: bold;
 }
 
+ /* Creación de la flecha con bordes */
+        .arrow-up {
+            width: 0;
+            height: 0;
+            /* Estos bordes crean la forma del triángulo */
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 15px solid #00008B; /* Este es el borde que se ve como la flecha */
+            
+            margin: 15px auto 0; /* Espacio arriba de la flecha y la centra horizontalmente */
+            padding-top: 25px;
+            /* Aplicamos la animación */
+            animation: bounce 2s infinite;
+        }
+
+        /* Definición de la animación de "rebote" */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-15px); /* Sube 15px */
+            }
+            60% {
+                transform: translateY(-7px); /* Sube 7px */
+            }
+        }
+
 /* Estilos para el Footer específico de la Página de Diseño */
 .design-page-wrapper .footer {
     background-color: var(--color-fondo-claro, #e4e2dd); /* Fondo claro a juego con la página */
