@@ -1831,3 +1831,157 @@ html {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* --- SPACE JOB editorial showcase --- */
+.home-page .spacejob-showcase {
+    position: relative;
+    min-height: 570px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(150px, 0.78fr);
+    background: #050505;
+    overflow: hidden;
+}
+
+.home-page .spacejob-showcase figure {
+    margin: 0;
+    min-width: 0;
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+.home-page .spacejob-showcase__hero {
+    min-height: 570px;
+    border-right: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.home-page .spacejob-showcase__hero img,
+.home-page .spacejob-showcase__products img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.55s ease, filter 0.35s ease;
+}
+
+.home-page .spacejob-showcase__hero img {
+    object-position: center 28%;
+}
+
+.home-page .spacejob-showcase__products {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    min-width: 0;
+}
+
+.home-page .spacejob-showcase__products figure:first-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.home-page .spacejob-showcase__products img {
+    object-position: center 36%;
+}
+
+.home-page .flagship-project__visual:hover .spacejob-showcase__hero img {
+    transform: scale(1.025);
+    filter: contrast(1.04) saturate(1.04);
+}
+
+.home-page .flagship-project__visual:hover .spacejob-showcase__products img {
+    transform: scale(1.035);
+}
+
+.home-page .spacejob-showcase__eyebrow,
+.home-page .spacejob-showcase__index {
+    position: absolute;
+    z-index: 3;
+    padding: 7px 9px;
+    background: rgba(0, 0, 0, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    color: #d2d2d2;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    backdrop-filter: blur(7px);
+}
+
+.home-page .spacejob-showcase__eyebrow {
+    top: 18px;
+    left: 18px;
+}
+
+.home-page .spacejob-showcase__index {
+    right: 18px;
+    bottom: 18px;
+    color: var(--green-neon);
+}
+
+.home-page .spacejob-showcase__logo {
+    position: absolute;
+    z-index: 4;
+    left: 18px;
+    bottom: 18px;
+    width: 54px;
+    height: 54px;
+    padding: 4px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.32);
+}
+
+.home-page .spacejob-showcase__logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 900px) {
+    .home-page .spacejob-showcase,
+    .home-page .spacejob-showcase__hero {
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 680px) {
+    .home-page .spacejob-showcase {
+        min-height: 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(380px, 58vh) 185px;
+    }
+
+    .home-page .spacejob-showcase__hero {
+        min-height: 0;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .home-page .spacejob-showcase__products {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .home-page .spacejob-showcase__products figure:first-child {
+        border-right: 1px solid rgba(255, 255, 255, 0.16);
+        border-bottom: 0;
+    }
+
+    .home-page .spacejob-showcase__eyebrow {
+        top: 12px;
+        left: 12px;
+        font-size: 0.56rem;
+    }
+
+    .home-page .spacejob-showcase__logo {
+        left: 12px;
+        bottom: 197px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .home-page .spacejob-showcase__index {
+        right: 12px;
+        bottom: 12px;
+    }
+}
