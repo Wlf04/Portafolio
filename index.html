@@ -3,140 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <meta name="description" content="Portfolio of Oscar Boza Martinez — frontend development, e-commerce, UI design and brand experiences.">
+    <title>Oscar Boza Martinez | Frontend Developer & Digital Designer</title>
     <link rel="stylesheet" href="style2.css">
     <link rel="icon" href="assets/images/icon.svg">
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
     <script src="https://kit.fontawesome.com/db173a3adc.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    
-   <!--
+<body class="home-page">
+    <canvas id="matrix-bg" aria-hidden="true"></canvas>
 
-   
-     <div id="password-gate">
-        <div class="terminal">
-            <h1>ACCESO REQUERIDO</h1>
-            <p>Se requiere autenticación para acceder a este sistema.</p>
-            <form id="password-form">
-                <label for="password-input">> Contraseña:</label>
-                <input type="password" id="password-input" autofocus>
-                <span class="cursor">_</span>
-            </form>
-            <p id="error-message"></p>
-        </div>
-    </div>
-    <div id="main-content" class="hidden">
-      -->
-        
-    <canvas id="matrix-bg"></canvas>
+    <header class="home-nav" aria-label="Primary navigation">
+        <a class="home-nav__brand" href="#top">OBM<span class="terminal-cursor">_</span></a>
+        <nav>
+            <a href="#work">Work</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-    <main class="container">
-        <section class="intro">
-            <div class="intro-image">
-                <img src="assets/modelo.webp" alt="Oscar Boza Martinez profile picture">
+    <main class="home-shell" id="top">
+        <section class="home-hero" aria-labelledby="hero-title">
+            <div class="home-hero__image">
+                <img src="assets/modelo.webp" alt="Portrait of Oscar Boza Martinez">
+                <span class="home-hero__status"><span aria-hidden="true"></span> Available for selected projects</span>
             </div>
-            <div class="intro-text">
-                <h1>Oscar Boza Martinez</h1>
-                <p>#######</p>
-                <div class="action-buttons">
-                    <button class="descargar" onclick="location.href='#'"><i class="fa-solid fa-file-arrow-down"></i></button>
-                    <a href="#contact" class="contact-button">Contact Me</a>
+
+            <div class="home-hero__content">
+                <p class="terminal-label">PORTFOLIO / 2026</p>
+                <h1 id="hero-title">Oscar Boza Martinez</h1>
+                <p class="home-hero__role">Frontend Developer <span>/</span> Digital Designer</p>
+                <p class="home-hero__summary">
+                    I design and build digital experiences from concept to launch — combining interface design,
+                    frontend development, e-commerce and brand systems.
+                </p>
+
+                <div class="home-actions">
+                    <a class="terminal-button terminal-button--filled" href="#work">View selected work</a>
+                    <a class="terminal-button" href="#contact">Contact me</a>
+                </div>
+
+                <div class="home-hero__links" aria-label="External profiles">
+                    <a href="https://github.com/Wlf04" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/oscar-martinez-718436308?trk=profile-badge" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
                 </div>
             </div>
         </section>
 
-       <section class="gallery">
-    <h2>PROJECTS</h2>
-    <div class="project-categories">
-         <a href="coming.html">Cyber Security</a>
-         <a href="projects.html">Web</a>
-         <a href="diseño.html">Design</a>
-         <a href="coming.html">Blogs</a>
-    </div>
-
-    <div class="project-previews">
-        <div class="preview-card">
-           <img src="assets/images/grupo.png" alt="Previsualización del Proyecto 1" class="preview-image">
-            <h3>GRUPO</h3>
-            <p>New conections.</p>
-            <a href="coming.html">Ver Proyecto</a>
-        </div>
-        <div class="preview-card">
-            <img src="assets/images/ourhour.png" alt="Previsualización del Proyecto 1" class="preview-image">
-            <h3>OURHOUR</h3>
-            <p>Ready to get best deals.</p>
-            <a href="coming.html">Ver Proyecto</a>
-        </div>
-    </div>
-    <div class="all-projects-link">
-         <a href="projects.html" class="cert-link">ALL PROJECTS</a>
-    </div>
-    <div class="gallery-highlight">
-        <model-viewer class="model" src="assets/models/cubo.glb" shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer>
-    </div>
-</section>
-
-
-
-<section class="services-link-section">
-    <a href="servicios.html" class="cert-link">
-        Servicios <i class="fa-solid fa-arrow-right"></i>
-    </a>
-</section>
-
-      <section class="focus">
-    <h2>SKILLS</h2>
-    <div class="focus-grid">
-        <span ><i class="fa-brands fa-html5" ></i></span>
-        <span><i class="fa-brands fa-js"></i></span>
-        <span><i class="fa-brands fa-css3-alt"></i></span>
-        <span><i class="fa-brands fa-sass"></i></span>
-        <span><i class="fa-brands fa-figma"></i></span>
-        <span><i class="fa-brands fa-wordpress"></i></span>
-        <span><i class="fa-brands fa-git-alt"></i></span>
-        <span><i class="fa-brands fa-bootstrap"></i></span>
-        <span><i class="fa-brands fa-react"></i></span>
-        <span><i class="fa-brands fa-shopify"></i></span>
-        <span><i class="fa-solid fa-palette"></i></span>  <span>IA</span> </div>
-</section>
-
-        <section class="certifications">
-            <div class="cert-text">
-                <h3>Certifications</h3>
-                <p>My Certifications</p>
-            </div>
-            <a href="certificaciones.html" class="cert-link">
-                <div class="button-content">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="openai-icon"><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
-                    <span>My Certifications</span>
+        <section class="selected-work" id="work" aria-labelledby="work-title">
+            <div class="home-section-heading">
+                <p class="terminal-label">01 / SELECTED WORK</p>
+                <div>
+                    <h2 id="work-title">Projects built to work, not just to look good.</h2>
+                    <p>A focused selection of web, commerce and design work.</p>
                 </div>
-            </a>
+            </div>
+
+            <article class="flagship-project">
+                <a class="flagship-project__visual" href="diseño.html" aria-label="View SPACE JOB case study">
+                    <div class="spacejob-art" aria-hidden="true">
+                        <span class="spacejob-art__eyebrow">FASHION / COMMERCE / IDENTITY</span>
+                        <strong>SPACE<br>JOB</strong>
+                        <span class="spacejob-art__orbit"></span>
+                        <span class="spacejob-art__index">001</span>
+                    </div>
+                </a>
+
+                <div class="flagship-project__content">
+                    <div class="project-kicker">
+                        <span>01</span>
+                        <span>FEATURED / END-TO-END</span>
+                    </div>
+                    <h3>SPACE JOB</h3>
+                    <p class="flagship-project__lead">Fashion e-commerce experience built from brand concept to checkout.</p>
+                    <p>
+                        I created the visual identity, designed and developed the website, implemented Stripe payments
+                        and built the customer communication flow around the store.
+                    </p>
+                    <div class="project-tags" aria-label="Project disciplines">
+                        <span>Brand Identity</span>
+                        <span>UI Design</span>
+                        <span>Web Development</span>
+                        <span>E-commerce</span>
+                        <span>Stripe</span>
+                    </div>
+                    <a class="project-arrow-link" href="diseño.html">View case study <span aria-hidden="true">↗</span></a>
+                </div>
+            </article>
+
+            <div class="secondary-work">
+                <article class="secondary-project">
+                    <a class="secondary-project__image" href="https://wlf04.github.io/Weather-App/" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/images/projects/weatherapp.png" alt="Weather App interface preview">
+                    </a>
+                    <div class="project-kicker">
+                        <span>02</span>
+                        <span>WEB APP</span>
+                    </div>
+                    <h3>Weather App</h3>
+                    <p>Search weather conditions, temperature and wind data for cities around the world.</p>
+                    <p class="project-stack">HTML / CSS / JAVASCRIPT</p>
+                    <a class="project-arrow-link" href="https://wlf04.github.io/Weather-App/" target="_blank" rel="noopener noreferrer">View live project <span aria-hidden="true">↗</span></a>
+                </article>
+
+                <article class="secondary-project">
+                    <a class="secondary-project__image" href="https://wlf04.github.io/QR-Code-Generator/" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/images/projects/qr-generator.png" alt="QR Code Generator interface preview">
+                    </a>
+                    <div class="project-kicker">
+                        <span>03</span>
+                        <span>WEB TOOL</span>
+                    </div>
+                    <h3>QR Generator</h3>
+                    <p>A lightweight tool for creating QR codes from different types of content.</p>
+                    <p class="project-stack">HTML / CSS / JAVASCRIPT</p>
+                    <a class="project-arrow-link" href="https://wlf04.github.io/QR-Code-Generator/" target="_blank" rel="noopener noreferrer">View live project <span aria-hidden="true">↗</span></a>
+                </article>
+            </div>
+
+            <div class="selected-work__footer">
+                <a class="terminal-button" href="projects.html">View all projects →</a>
+            </div>
         </section>
 
-        </div>
-
-        <footer class="contact" id="contact">
-            <h2>Social</h2>
-            <div class="contact-links">
-                 <a href="https://www.linkedin.com/in/oscar-martinez-718436308?trk=profile-badge"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                 <a href="https://github.com/Wlf04"><i class="fa-brands fa-github"></i> GitHub</a>
-                 <a href="mailto:oscarmartinez0498@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-                 <a href="#" id="share-button"><i class="fa-solid fa-share-nodes"></i> Share</a>
+        <section class="home-capabilities" id="capabilities" aria-labelledby="capabilities-title">
+            <div class="home-section-heading">
+                <p class="terminal-label">02 / CAPABILITIES</p>
+                <div>
+                    <h2 id="capabilities-title">From visual direction to working product.</h2>
+                    <p>The areas where I can take direct ownership and ship.</p>
+                </div>
             </div>
-            <div class="footer-bottom">
-                <p>©oscar-martinez-<span id="year"></span></p>
-            </div>
-        </footer>
 
+            <div class="capability-grid">
+                <article>
+                    <span class="capability-number">01</span>
+                    <h3>Frontend Development</h3>
+                    <p>Responsive interfaces, interactive experiences and polished implementations for modern websites.</p>
+                </article>
+                <article>
+                    <span class="capability-number">02</span>
+                    <h3>E-commerce & Integrations</h3>
+                    <p>Storefront experiences, payment flows and product journeys built around real customer actions.</p>
+                </article>
+                <article>
+                    <span class="capability-number">03</span>
+                    <h3>Brand & UI Design</h3>
+                    <p>Visual identity, interface systems and digital art direction that stay consistent from brand to screen.</p>
+                </article>
+            </div>
+
+            <div class="stack-strip" aria-label="Tools and technologies">
+                <span><i class="fa-brands fa-html5"></i> HTML</span>
+                <span><i class="fa-brands fa-css3-alt"></i> CSS</span>
+                <span><i class="fa-brands fa-js"></i> JavaScript</span>
+                <span><i class="fa-brands fa-react"></i> React</span>
+                <span><i class="fa-brands fa-sass"></i> Sass</span>
+                <span><i class="fa-brands fa-git-alt"></i> Git</span>
+                <span><i class="fa-brands fa-figma"></i> Figma</span>
+                <span><i class="fa-brands fa-shopify"></i> Shopify</span>
+                <span><i class="fa-brands fa-wordpress"></i> WordPress</span>
+                <span><i class="fa-brands fa-stripe"></i> Stripe</span>
+            </div>
+        </section>
+
+        <section class="home-contact" id="contact" aria-labelledby="contact-title">
+            <p class="terminal-label">03 / CONTACT</p>
+            <div class="home-contact__layout">
+                <div>
+                    <h2 id="contact-title">Have a project that needs both design and development?</h2>
+                    <p>Tell me what you are building and where you need help.</p>
+                </div>
+                <a class="home-contact__email" href="mailto:oscarmartinez0498@gmail.com">
+                    oscarmartinez0498@gmail.com <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+
+            <div class="home-contact__links">
+                <a href="https://www.linkedin.com/in/oscar-martinez-718436308?trk=profile-badge" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/Wlf04" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+                <button type="button" id="share-button"><i class="fa-solid fa-share-nodes"></i> Share portfolio</button>
+            </div>
+        </section>
     </main>
+
+    <footer class="home-footer">
+        <p>© Oscar Boza Martinez <span id="year"></span></p>
+        <a href="#top">Back to top ↑</a>
+    </footer>
+
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        const shareButton = document.getElementById('share-button');
+        shareButton?.addEventListener('click', async () => {
+            const shareData = {
+                title: document.title,
+                text: 'Oscar Boza Martinez — Frontend Developer & Digital Designer',
+                url: window.location.href
+            };
+
+            try {
+                if (navigator.share) {
+                    await navigator.share(shareData);
+                } else if (navigator.clipboard) {
+                    await navigator.clipboard.writeText(window.location.href);
+                    const original = shareButton.innerHTML;
+                    shareButton.textContent = 'Link copied';
+                    window.setTimeout(() => { shareButton.innerHTML = original; }, 1600);
+                }
+            } catch (error) {
+                // The user may cancel the native share dialog; no action is required.
+            }
+        });
     </script>
-     
-    <script src="/assets/js/matrix.js"></script>
+    <script src="assets/js/matrix.js"></script>
 </body>
-
 </html>
-
-
