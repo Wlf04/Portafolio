@@ -3103,3 +3103,115 @@ html {
         flex-direction: column;
     }
 }
+
+/* ==========================================================
+   V9 FINAL POLISH — ACCESSIBILITY / MOBILE NAV / UX
+   ========================================================== */
+
+.skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 9999;
+    padding: 10px 12px;
+    background: var(--green-neon);
+    color: #000 !important;
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    transform: translateY(-160%);
+    transition: transform .16s ease;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+:is(.home-page, .work-page, .services-page) a:focus-visible,
+:is(.home-page, .work-page, .services-page) button:focus-visible {
+    outline: 2px solid #00ffff;
+    outline-offset: 4px;
+}
+
+:is(.home-page, .work-page, .services-page) [aria-current="page"] {
+    color: var(--green-neon);
+}
+
+:is(.home-page, .work-page, .services-page) img {
+    max-width: 100%;
+}
+
+@media (max-width: 820px) {
+    .work-nav,
+    .services-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .work-nav nav,
+    .services-nav {
+        display: flex !important;
+        width: 100%;
+        gap: 18px;
+        overflow-x: auto;
+        padding: 3px 2px 9px;
+        white-space: nowrap;
+        scrollbar-width: none;
+    }
+
+    .work-nav nav::-webkit-scrollbar,
+    .services-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .work-nav nav a,
+    .services-nav a {
+        flex: 0 0 auto;
+        min-height: 34px;
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 560px) {
+    .home-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .home-nav nav {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 18px;
+        overflow-x: auto;
+        padding: 3px 2px 9px;
+        white-space: nowrap;
+        scrollbar-width: none;
+    }
+
+    .home-nav nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .home-nav nav a {
+        flex: 0 0 auto;
+        min-height: 34px;
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :is(.work-page, .services-page) *,
+    :is(.work-page, .services-page) *::before,
+    :is(.work-page, .services-page) *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
