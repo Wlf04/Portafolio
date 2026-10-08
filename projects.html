@@ -3,191 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-    <link rel="stylesheet" href="/style2.css">
+    <meta name="description" content="Selected web, e-commerce and design work by Oscar Boza Martinez.">
+    <title>Selected Work | Oscar Boza Martinez</title>
+    <link rel="stylesheet" href="style2.css">
     <link rel="icon" href="assets/images/icon.svg">
-    <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
+    <script src="https://kit.fontawesome.com/db173a3adc.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="work-page">
+    <canvas id="matrix-bg" aria-hidden="true"></canvas>
 
-   <header class="main-header">
-    <nav class="main-nav">
-        <ul>
-           <li><a href="index.html" aria-label="Home"><i class="fa-solid fa-house"></i></a></li>
-            </ul>
-    </nav>
-</header>
+    <header class="work-nav" aria-label="Primary navigation">
+        <a class="work-nav__brand" href="index.html">OBM<span class="terminal-cursor">_</span></a>
+        <nav>
+            <a class="is-active" href="projects.html">Work</a>
+            <a href="index.html#capabilities">Capabilities</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
 
-    <div class="proyectos">
-        <div class="background">
-            <div class="centering">
-                <div class="articles">
+    <main class="work-shell">
+        <section class="work-intro" aria-labelledby="work-page-title">
+            <p class="terminal-label">01 / WORK INDEX</p>
+            <div class="work-intro__grid">
+                <h1 id="work-page-title">Selected work & experiments.</h1>
+                <p>
+                    A curated collection of brand, e-commerce and frontend projects. The strongest work comes first;
+                    smaller experiments live in the archive below.
+                </p>
+            </div>
+        </section>
 
-                    <article>
-                        <a href="https://wlf04.github.io/Photographer-Portafolio-/">
-                            <figure>
-                                <img src="assets/images/projects/portafolio.png" alt="Photographer Portafolio Preview">
-                            </figure>
-                            <div class="article-preview">
-                                <h2>Photographer Portafolio</h2>
-                                <p>A portafolio for photographers and creatives.</p>
-                                <div class="techno">
-                                    <i class="fa-brands fa-css3-alt"></i>
-                                    <i class="fa-brands fa-html5"></i>
-                                    <i class="fa-brands fa-js"></i>
-                                    <i class="fa-brands fa-react"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
+        <section class="work-featured" aria-labelledby="featured-project-title">
+            <a class="work-featured__media" href="diseño.html" aria-label="View SPACE JOB case study">
+                <img src="assets/images/spacejob/campaign-hero.png" alt="SPACE JOB fashion campaign featuring a white hoodie">
+                <div class="work-featured__mark" aria-hidden="true">
+                    <img src="assets/images/spacejob/logo.png" alt="">
+                </div>
+                <span class="work-featured__index">001</span>
+            </a>
 
-                    <article>
-                        <a href="https://wlf04.github.io/TO-DO-LIST/">
-                            <figure>
-                                <img src="assets/images/projects/todolist.png" alt="TO-DO-LIST Preview">
-                            </figure>
-                            <div class="article-preview">
-                                <h2>TO-DO-LIST</h2>
-                                <p>A classic TO-DO-LIST to create tasks, track progress and improve productivity.</p>
-                                <div class="techno">
-                                    <i class="fa-brands fa-css3-alt"></i>
-                                    <i class="fa-brands fa-html5"></i>
-                                    <i class="fa-brands fa-js"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
+            <div class="work-featured__copy">
+                <div class="project-kicker">
+                    <span>01</span>
+                    <span>FEATURED / END-TO-END</span>
+                </div>
+                <h2 id="featured-project-title">SPACE JOB</h2>
+                <p class="work-featured__lead">Independent fashion brand developed from visual identity to commerce.</p>
+                <p>
+                    Brand identity, art direction, storefront design and development, Stripe payments and the customer purchase flow — built as one connected product experience.
+                </p>
+                <div class="project-tags" aria-label="Project disciplines">
+                    <span>Brand Identity</span>
+                    <span>Art Direction</span>
+                    <span>UI Design</span>
+                    <span>Web Development</span>
+                    <span>E-commerce</span>
+                    <span>Stripe</span>
+                </div>
+                <a class="project-arrow-link" href="diseño.html">View case study <span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
 
-                    <article>
-                        <a href="https://wlf04.github.io/Weather-App/">
-                            <figure>
-                                <img src="assets/images/projects/weatherapp.png" alt="Weather App Preview">
-                            </figure>
-                            <div class="article-preview">
-                                <h2>WEATHER-APP</h2>
-                                <p>Track the weather, temperature, and wind strength in any city in the world.</p>
-                                <div class="techno">
-                                    <i class="fa-brands fa-css3-alt"></i>
-                                    <i class="fa-brands fa-html5"></i>
-                                    <i class="fa-brands fa-js"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article>
-                        <a href="https://wlf04.github.io/Basic-Music-player-/">
-                            <figure>
-                                <img src="assets/images/projects/reproductor.png" alt="Music Player Preview">
-                            </figure>
-                            <div class="article-preview">
-                                <h2>MUSIC REPRODUCTOR</h2>
-                                <p>A basic player that plays songs stored in local files, it’s not finished yet. 🎵🔊</p>
-                                <div class="techno">
-                                    <i class="fa-brands fa-css3-alt"></i>
-                                    <i class="fa-brands fa-html5"></i>
-                                    <i class="fa-brands fa-js"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article>
-                        <a href="https://wlf04.github.io/Quote-Generator/">
-                            <figure>
-                                <img src="assets/images/projects/quote-generator.png" alt="Quote Generator Preview">
-                            </figure>
-                            <div class="article-preview">
-                                <h2>QUOTE-GENERATOR</h2>
-                                <p>Here you can see quotes from people who made history.</p>
-                                <div class="techno">
-                                    <i class="fa-brands fa-css3-alt"></i>
-                                    <i class="fa-brands fa-html5"></i>
-                                    <i class="fa-brands fa-js"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article>
-                        <a href="https://wlf04.github.io/QR-Code-Generator/">
-                            <figure>
-                                <img src="assets/images/projects/qr-generator.png" alt="QR Generator Preview">
-                            </figure>
-                            <div class="article-preview">
-                                <h2>QR Generator</h2>
-                                <p>This tool allows you to create dynamic and editable QR codes for various content types.</p>
-                                <div class="techno">
-                                    <i class="fa-brands fa-css3-alt"></i>
-                                    <i class="fa-brands fa-html5"></i>
-                                    <i class="fa-brands fa-js"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article>
-                        <a href="#"> <figure>
-                                <img src="assets/images/projects/in-progress.jpg" alt="Music App Preview">
-                            </figure>
-                            <div class="article-preview">
-                                <h2>MUSIC APP</h2>
-                                <p>An application for the music community where they can write notes, record voices, and more. 🎵🎤📝</p>
-                                <div class="techno">
-                                    <i class="fa-brands fa-css3-alt"></i>
-                                    <i class="fa-brands fa-html5"></i>
-                                    <i class="fa-brands fa-js"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-                    
-                    <article>
-                        <a href="#"> <figure>
-                                <img src="assets/images/projects/in-progress.jpg" alt="Brand Website Preview">
-                            </figure>
-                            <div class="article-preview">
-                                <h2>Brand Website</h2>
-                                <p>Work in progress.</p>
-                                <div class="techno">
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article>
-                        <a href="https://wlf04.github.io/Calculator/">
-                            <figure>
-                                <img src="assets/images/projects/calculator.png" alt="Calculator Preview">
-                            </figure>
-                            <div class="article-preview">
-                                <h2>Calculator</h2>
-                                <p>A minimal calculator app, my first project to learn and practice HTML, CSS and Javascript.</p>
-                                <div class="techno">
-                                    <i class="fa-brands fa-css3-alt"></i>
-                                    <i class="fa-brands fa-html5"></i>
-                                    <i class="fa-brands fa-js"></i>
-                                    <i class="fa-brands fa-sass"></i>
-                                </div>
-                            </div>
-                        </a>
-                    </article>
-
+        <section class="work-selected" aria-labelledby="selected-title">
+            <div class="work-section-heading">
+                <p class="terminal-label">02 / SELECTED BUILDS</p>
+                <div>
+                    <h2 id="selected-title">Focused frontend projects.</h2>
+                    <p>Smaller builds that demonstrate interface implementation, browser APIs and practical JavaScript.</p>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <footer>
-        <div class="raya">
-            <p>©oscar-martinez-<span id="year" style="color: rgb(237, 161, 62);">2025</span></p>
+            <div class="work-grid">
+                <article class="work-card work-card--wide">
+                    <a class="work-card__image" href="https://wlf04.github.io/Photographer-Portafolio-/" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/images/projects/portafolio.png" alt="Photographer portfolio website preview">
+                    </a>
+                    <div class="work-card__body">
+                        <div class="project-kicker"><span>02</span><span>WEB EXPERIENCE</span></div>
+                        <h3>Photographer Portfolio</h3>
+                        <p>A portfolio concept for photographers and creatives, focused on visual presentation and responsive layout.</p>
+                        <p class="project-stack">HTML / CSS / JAVASCRIPT / REACT</p>
+                        <a class="project-arrow-link" href="https://wlf04.github.io/Photographer-Portafolio-/" target="_blank" rel="noopener noreferrer">View live project <span aria-hidden="true">↗</span></a>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <a class="work-card__image" href="https://wlf04.github.io/Weather-App/" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/images/projects/weatherapp.png" alt="Weather App interface preview">
+                    </a>
+                    <div class="work-card__body">
+                        <div class="project-kicker"><span>03</span><span>WEB APP</span></div>
+                        <h3>Weather App</h3>
+                        <p>Search weather conditions, temperature and wind data for cities around the world.</p>
+                        <p class="project-stack">HTML / CSS / JAVASCRIPT</p>
+                        <a class="project-arrow-link" href="https://wlf04.github.io/Weather-App/" target="_blank" rel="noopener noreferrer">View live project <span aria-hidden="true">↗</span></a>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <a class="work-card__image" href="https://wlf04.github.io/QR-Code-Generator/" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/images/projects/qr-generator.png" alt="QR Code Generator interface preview">
+                    </a>
+                    <div class="work-card__body">
+                        <div class="project-kicker"><span>04</span><span>WEB TOOL</span></div>
+                        <h3>QR Generator</h3>
+                        <p>A lightweight browser tool for creating QR codes from different types of content.</p>
+                        <p class="project-stack">HTML / CSS / JAVASCRIPT</p>
+                        <a class="project-arrow-link" href="https://wlf04.github.io/QR-Code-Generator/" target="_blank" rel="noopener noreferrer">View live project <span aria-hidden="true">↗</span></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="work-cta" aria-labelledby="work-cta-title">
+            <p class="terminal-label">03 / NEXT</p>
+            <div>
+                <h2 id="work-cta-title">Interested in how I approach a full product?</h2>
+                <p>Start with SPACE JOB — the project where brand, interface, commerce and implementation come together.</p>
+            </div>
+            <a class="terminal-button terminal-button--filled" href="diseño.html">Open SPACE JOB case study →</a>
+        </section>
+    </main>
+
+    <footer class="work-footer">
+        <p>© Oscar Boza Martinez <span id="year"></span></p>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="index.html#contact">Contact</a>
         </div>
     </footer>
-    
-    <script src="https://kit.fontawesome.com/db173a3adc.js" crossorigin="anonymous"></script>
-    <script src="assets/js/script.js"></script>
 
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script src="assets/js/matrix.js"></script>
 </body>
 </html>
