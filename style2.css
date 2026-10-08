@@ -1187,14 +1187,6 @@ html {
     position: relative;
 }
 
-.home-hero__image::before {
-    content: 'PORTRAIT / 001';
-    display: block;
-    margin-bottom: 10px;
-    color: #7a7a7a;
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-}
 
 .home-hero__image img {
     display: block;
@@ -1776,6 +1768,7 @@ html {
 
     .home-hero__image {
         width: min(240px, 70vw);
+        margin-inline: auto;
     }
 
     .home-hero__content h1 {
@@ -1922,12 +1915,11 @@ html {
     bottom: 18px;
     width: 54px;
     height: 54px;
-    padding: 4px;
     display: grid;
     place-items: center;
-    background: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.32);
+    background: transparent;
+    border: 0;
+    box-shadow: none;
 }
 
 .home-page .spacejob-showcase__logo img {
