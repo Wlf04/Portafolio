@@ -1,294 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPACE JOB — Case Study</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Glass+Antiqua&display=swap" rel="stylesheet">
-
-    <!-- Existing site stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
-    <link rel="icon" href="assets/images/icon.svg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SPACE JOB — a development case study covering frontend, architecture, payment integration, backend and database considerations, and the full e-commerce experience.">
+  <meta name="theme-color" content="#050505">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SPACE JOB | Web Development Case Study">
+  <meta property="og:description" content="A development-first walkthrough: storefront, architecture, data, checkout, Stripe and technical decisions.">
+  <title>SPACE JOB | Web Development Case Study</title>
+  <link rel="icon" href="assets/images/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Existing portfolio stylesheet; the case-study stylesheet below has scoped overrides. -->
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="spacejob-case-study.css">
 </head>
-
 <body class="spacejob-case-study">
+  <a class="sj-skip" href="#main">Skip to case study</a>
 
-    <header class="design-header sj-topbar">
-        <a href="index.html" class="sj-back" aria-label="Back to portfolio">
-            <img src="assets/images/logito.png" alt="SPACE JOB" class="header-logo">
-        </a>
+  <header class="sj-header">
+    <a class="sj-brand" href="index.html" aria-label="Back to portfolio home">OBM<span aria-hidden="true">_</span></a>
+    <nav class="sj-nav" aria-label="Case study sections">
+      <a href="#overview">Overview</a>
+      <a href="#flow">User flow</a>
+      <a href="#technology">Tech stack</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#implementation">Implementation</a>
+      <a href="#questions">10 questions</a>
+    </nav>
+    <a class="sj-header-live" href="https://www.space-job.com" target="_blank" rel="noopener noreferrer">Live store <span aria-hidden="true">↗</span></a>
+  </header>
 
-        <nav class="sj-nav" aria-label="Case study">
-            <a href="#story">Story</a>
-            <a href="#identity">Identity</a>
-            <a href="#collection">Collection</a>
-            <a href="#digital">Digital</a>
-            <a href="#archive">Archive</a>
-        </nav>
-    </header>
+  <main id="main" class="sj-main">
+    <!-- 01 / HERO -->
+    <section class="sj-hero" aria-labelledby="sj-title">
+      <div class="sj-hero-copy">
+        <p class="sj-eyebrow"><span class="sj-pulse" aria-hidden="true"></span> 001 / WEB DEVELOPMENT CASE STUDY</p>
+        <h1 id="sj-title">SPACE<br><span>JOB</span><span class="sj-title-dot">.</span></h1>
+        <p class="sj-hero-lead">Building the web experience behind an independent e-commerce brand.</p>
+        <p class="sj-hero-description">A development-focused breakdown of the storefront, responsive frontend, cart-to-checkout journey, Stripe integration and post-purchase flow — with a transparent look at what is known and what still needs source-code verification.</p>
+        <div class="sj-actions">
+          <a class="sj-button sj-button-solid" href="#overview">Explore the build <span aria-hidden="true">↘</span></a>
+          <a class="sj-button sj-button-outline" href="https://www.space-job.com" target="_blank" rel="noopener noreferrer">View live project <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="sj-hero-visual">
+        <img src="assets/images/spacejob/campaign-hero.png" alt="SPACE JOB product campaign featuring a white hoodie" fetchpriority="high">
+        <div class="sj-image-index" aria-hidden="true">[ 001 / PRODUCT EXPERIENCE ]</div>
+        <div class="sj-image-corner" aria-hidden="true">SJ / 26</div>
+      </div>
+    </section>
 
-    <main class="design-page-wrapper sj-page">
+    <div class="sj-facts" aria-label="Project information">
+      <div><span>PROJECT TYPE</span><strong>Responsive e-commerce website</strong></div>
+      <div><span>DEVELOPMENT FOCUS</span><strong>UI · Purchase flow · Integration</strong></div>
+      <div><span>VERIFIED SERVICE</span><strong>Stripe payments</strong></div>
+      <div><span>PROJECT STATUS</span><strong><i class="sj-status-dot" aria-hidden="true"></i> Live</strong></div>
+    </div>
 
-        <!-- 01 / HERO -->
-        <section class="sj-hero">
-            <img src="assets/images/poster.png" alt="SPACE JOB campaign poster" class="sj-poster">
+    <!-- 02 / OVERVIEW -->
+    <section class="sj-section sj-overview" id="overview" aria-labelledby="sj-overview-heading">
+      <div class="sj-section-label">02 / THE BRIEF</div>
+      <div class="sj-section-body">
+        <p class="sj-mini">THE DEVELOPMENT CHALLENGE</p>
+        <h2 id="sj-overview-heading">A brand isn't a store until people can actually buy.</h2>
+        <p class="sj-intro">The goal was to move beyond a visual presence and build a functional shopping experience. Customers needed a clear way to discover products, select what they wanted, pay, and receive confirmation of their order.</p>
+        <div class="sj-duo">
+          <article class="sj-info-card">
+            <span class="sj-card-index">01 / PROBLEM</span>
+            <h3>Connect the experience.</h3>
+            <p>Product presentation, navigation, checkout and communication cannot feel like separate pieces. Every step needs to lead naturally to the next.</p>
+          </article>
+          <article class="sj-info-card">
+            <span class="sj-card-index">02 / SOLUTION</span>
+            <h3>Build the complete journey.</h3>
+            <p>A responsive storefront that brings product browsing, cart, checkout, payment processing and post-purchase messaging into one customer-facing flow.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-            <div class="sj-hero-info">
-                <div>
-                    <p class="sj-kicker">01 / CASE STUDY</p>
-                    <h1>SPACE JOB</h1>
-                    <p class="sj-hero-tagline">Independent fashion brand — from identity to commerce.</p>
-                </div>
+    <!-- 03 / USER FLOW -->
+    <section class="sj-section" id="flow" aria-labelledby="sj-flow-heading">
+      <div class="sj-section-label">03 / EXPERIENCE ARCHITECTURE</div>
+      <div class="sj-section-body">
+        <p class="sj-mini">FROM ENTRY POINT TO CONFIRMATION</p>
+        <h2 id="sj-flow-heading">The purchase journey is the product.</h2>
+        <p class="sj-section-desc">Rather than treating checkout as an isolated feature, the experience is documented as a connected sequence of user actions.</p>
+        <ol class="sj-journey" aria-label="E-commerce purchase journey">
+          <li><span>01</span><strong>Browse</strong><small>Explore products</small></li>
+          <li><span>02</span><strong>Product</strong><small>Review an item</small></li>
+          <li><span>03</span><strong>Cart</strong><small>Prepare an order</small></li>
+          <li><span>04</span><strong>Checkout</strong><small>Complete details</small></li>
+          <li><span>05</span><strong>Stripe</strong><small>Process payment</small></li>
+          <li><span>06</span><strong>Confirm</strong><small>Show result</small></li>
+          <li><span>07</span><strong>Email</strong><small>Follow up</small></li>
+        </ol>
+        <div class="sj-inline-note"><span class="sj-note-symbol" aria-hidden="true">→</span><p><strong>Designing for continuity:</strong> the next action should always be easy to understand, from discovering a product to knowing whether the purchase succeeded.</p></div>
+      </div>
+    </section>
 
-                <dl class="sj-meta">
-                    <div>
-                        <dt>Role</dt>
-                        <dd>Brand · Art Direction · UI · Development</dd>
-                    </div>
-                    <div>
-                        <dt>Commerce</dt>
-                        <dd>Stripe · Checkout · Email</dd>
-                    </div>
-                    <div>
-                        <dt>Status</dt>
-                        <dd>Live</dd>
-                    </div>
-                </dl>
+    <!-- 04 / TECHNOLOGY -->
+    <section class="sj-section" id="technology" aria-labelledby="sj-tech-heading">
+      <div class="sj-section-label">04 / TECHNICAL BREAKDOWN</div>
+      <div class="sj-section-body">
+        <p class="sj-mini">TECH STACK / VERIFIED VS. TO BE CONFIRMED</p>
+        <h2 id="sj-tech-heading">The technology behind the storefront.</h2>
+        <p class="sj-section-desc">The available project material documents the customer-facing storefront, checkout, Stripe payments and transactional email. It does <strong>not</strong> identify the production frontend framework, backend runtime, database, hosting platform or email provider. The matrix below separates those facts from open technical details.</p>
+        <div class="sj-stack-audit" aria-label="Production technology verification matrix">
+          <div class="sj-stack-audit-head"><span>LAYER</span><span>TECHNOLOGY / CAPABILITY</span><span>EVIDENCE</span></div>
+          <div class="sj-stack-audit-row"><strong>Frontend</strong><span>Responsive online storefront</span><small class="sj-stack-verified">Documented capability</small></div>
+          <div class="sj-stack-audit-row"><strong>Framework</strong><span>React, Next.js or another framework: not identified</span><small class="sj-stack-pending">Source code needed</small></div>
+          <div class="sj-stack-audit-row"><strong>Backend / API</strong><span>Production runtime and endpoints not documented</span><small class="sj-stack-pending">Source code needed</small></div>
+          <div class="sj-stack-audit-row"><strong>Database</strong><span>Product, inventory and order storage not documented</span><small class="sj-stack-pending">Source code needed</small></div>
+          <div class="sj-stack-audit-row"><strong>Payments</strong><span>Stripe payment integration</span><small class="sj-stack-verified">Documented service</small></div>
+          <div class="sj-stack-audit-row"><strong>Email</strong><span>Order-related email; provider not identified</span><small class="sj-stack-mixed">Flow documented</small></div>
+          <div class="sj-stack-audit-row"><strong>Deployment</strong><span>Live domain; hosting / deployment pipeline unknown</span><small class="sj-stack-pending">Configuration needed</small></div>
+        </div>
+        <div class="sj-tech-grid">
+          <article class="sj-tech-card">
+            <div class="sj-tech-card-top"><span>01 / USER INTERFACE</span><span aria-hidden="true">&lt;/&gt;</span></div>
+            <h3>Responsive storefront</h3>
+            <p>The user-facing application presents products and guides customers through the main buying actions across screen sizes.</p>
+            <div class="sj-tech-tags"><span>Responsive UI</span><span>Product browsing</span><span>Cart</span></div>
+          </article>
+          <article class="sj-tech-card sj-tech-card-accent">
+            <div class="sj-tech-card-top"><span>02 / PAYMENT INTEGRATION</span><span aria-hidden="true">↗</span></div>
+            <h3>Stripe</h3>
+            <p>Payment processing is integrated into the store's purchase journey, connecting checkout with payment completion.</p>
+            <div class="sj-tech-tags"><span>Payments</span><span>Checkout</span><span>Transaction flow</span></div>
+          </article>
+          <article class="sj-tech-card">
+            <div class="sj-tech-card-top"><span>03 / POST-PURCHASE</span><span aria-hidden="true">@</span></div>
+            <h3>Confirmation & email</h3>
+            <p>The customer journey continues after checkout through order confirmation and transactional email communication.</p>
+            <div class="sj-tech-tags"><span>Order confirmation</span><span>Transactional email</span></div>
+          </article>
+        </div>
+        <div class="sj-code-strip" aria-label="Technologies used to implement this portfolio case study page">
+          <span>PORTFOLIO CASE STUDY PAGE (NOT THE STORE)</span>
+          <strong>HTML5</strong><strong>CSS3</strong><strong>JavaScript</strong>
+          <small>These apply to the case-study presentation. They do not prove which framework or database the live store uses.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / ARCHITECTURE: illustrative reference, not verified production internals -->
+    <section class="sj-section" id="architecture" aria-labelledby="sj-architecture-heading">
+      <div class="sj-section-label">05 / SYSTEM ARCHITECTURE</div>
+      <div class="sj-section-body">
+        <p class="sj-mini">HOW THE PIECES CONNECT</p>
+        <h2 id="sj-architecture-heading">From a click in the browser to a completed order.</h2>
+        <p class="sj-section-desc">The following is a <strong>reference architecture</strong> for building an e-commerce experience with the features documented above. It explains responsibilities and data flow; it is <strong>not</strong> a diagram reverse-engineered from SPACE JOB's private codebase.</p>
+        <div class="sj-architecture-map" aria-label="Illustrative e-commerce architecture">
+          <div class="sj-arch-main">
+            <article class="sj-arch-node">
+              <span>01 / CLIENT</span>
+              <h3>Storefront UI</h3>
+              <p>Product pages, responsive layout, cart state and checkout entry points.</p>
+              <small>Browser / frontend</small>
+            </article>
+            <div class="sj-arch-arrow" aria-hidden="true">↔</div>
+            <article class="sj-arch-node sj-arch-node-central">
+              <span>02 / APPLICATION</span>
+              <h3>Server & API layer</h3>
+              <p>Validate product data, calculate totals, create payment requests and coordinate orders.</p>
+              <small>Server-side responsibilities</small>
+            </article>
+            <div class="sj-arch-arrow" aria-hidden="true">↔</div>
+            <article class="sj-arch-node">
+              <span>03 / DATA</span>
+              <h3>Catalog & orders</h3>
+              <p>Store product information, order records and payment references.</p>
+              <small>Database / commerce platform</small>
+            </article>
+          </div>
+          <div class="sj-arch-integrations">
+            <div class="sj-arch-link" aria-hidden="true">↓ &nbsp; External integrations &nbsp; ↓</div>
+            <article><span class="sj-service-status sj-service-confirmed">DOCUMENTED</span><strong>Stripe</strong><small>Payment processing</small></article>
+            <article><span class="sj-service-status sj-service-unknown">PROVIDER UNKNOWN</span><strong>Transactional email</strong><small>Order notifications</small></article>
+          </div>
+        </div>
+        <div class="sj-inline-note"><span class="sj-note-symbol" aria-hidden="true">→</span><p><strong>Engineering principle:</strong> the browser can display totals, but a secure implementation should validate prices and order state on the server. Payment success should be verified server-side before an order is marked paid.</p></div>
+
+        <div class="sj-subsection-header">
+          <div>
+            <p class="sj-mini">EXAMPLE TECH STACK / NOT A PRODUCTION CLAIM</p>
+            <h3>A practical stack for a project of this size.</h3>
+          </div>
+          <span>REFERENCE ONLY</span>
+        </div>
+        <p class="sj-subsection-copy">If building a comparable custom storefront today, one possible implementation is the stack below. <strong>These names are suggestions, not technologies verified on SPACE JOB.</strong> Stripe is the only named production service confirmed by the supplied project description.</p>
+        <div class="sj-reference-stack">
+          <article><span>FRONTEND</span><h4>React + Next.js</h4><p>Reusable UI, routing and rendering.</p></article>
+          <article><span>LANGUAGE</span><h4>TypeScript</h4><p>Type safety across components and API contracts.</p></article>
+          <article><span>BACKEND</span><h4>Node.js / API routes</h4><p>Server-side order and checkout logic.</p></article>
+          <article><span>DATABASE</span><h4>PostgreSQL</h4><p>Products, order items and fulfillment records.</p></article>
+          <article><span>PAYMENTS</span><h4>Stripe</h4><p>Payment service also named in this project.</p></article>
+          <article><span>EMAIL & HOSTING</span><h4>Resend + Vercel</h4><p>Example email delivery and deployment services.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 / DATA AND RELIABILITY: generic technical patterns -->
+    <section class="sj-section" id="data" aria-labelledby="sj-data-heading">
+      <div class="sj-section-label">06 / DATA & RELIABILITY</div>
+      <div class="sj-section-body">
+        <p class="sj-mini">IMPLEMENTATION PRINCIPLES</p>
+        <h2 id="sj-data-heading">A checkout depends on more than a payment button.</h2>
+        <p class="sj-section-desc">A robust commerce build needs a dependable data model and clear handling of payment states. These are recommended engineering practices for a comparable application, not a verified database schema or test report for the live store.</p>
+        <div class="sj-data-grid">
+          <article class="sj-data-card"><span>01 / PRODUCT</span><h3>Catalog information</h3><code>id · name · price · variants · inventory</code><p>Centralize product data so the UI and checkout use consistent values.</p></article>
+          <article class="sj-data-card"><span>02 / ORDER</span><h3>Purchase records</h3><code>id · items · total · status · customer</code><p>Track what was purchased and distinguish pending, paid and failed states.</p></article>
+          <article class="sj-data-card"><span>03 / PAYMENT</span><h3>Provider reference</h3><code>order_id · payment_id · status</code><p>Associate the store's order with the payment provider without storing raw card data.</p></article>
+          <article class="sj-data-card"><span>04 / OPERATIONS</span><h3>Events & notification</h3><code>event_id · type · processed_at</code><p>Handle retries and send order email only when the appropriate event is confirmed.</p></article>
+        </div>
+        <div class="sj-quality-bar">
+          <div><span>SECURITY</span><strong>Server-side price checks</strong></div>
+          <div><span>PAYMENT STATES</span><strong>Verified confirmations</strong></div>
+          <div><span>RESILIENCE</span><strong>Safe retries / idempotency</strong></div>
+          <div><span>QUALITY</span><strong>Responsive & checkout testing</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 / IMPLEMENTATION -->
+    <section class="sj-section" id="implementation" aria-labelledby="sj-implementation-heading">
+      <div class="sj-section-label">07 / IMPLEMENTATION</div>
+      <div class="sj-section-body">
+        <p class="sj-mini">THREE CORE DEVELOPMENT AREAS</p>
+        <h2 id="sj-implementation-heading">Built around what customers need to do.</h2>
+        <div class="sj-feature-grid">
+          <article class="sj-feature-card sj-feature-card-image">
+            <div class="sj-feature-image"><img src="assets/images/spacejob/product-blue.png" alt="Blue SPACE JOB product shirt" loading="lazy" decoding="async"></div>
+            <div class="sj-feature-content"><span>01 / PRODUCT DISCOVERY</span><h3>Make products easy to explore.</h3><p>A straightforward path from the storefront to individual items helps people understand the collection before buying.</p></div>
+          </article>
+          <article class="sj-feature-card sj-feature-card-image">
+            <div class="sj-feature-image"><img src="assets/images/spacejob/product-red.png" alt="Red SPACE JOB product shirt" loading="lazy" decoding="async"></div>
+            <div class="sj-feature-content"><span>02 / CART & CHECKOUT</span><h3>Keep purchasing clear.</h3><p>The cart and checkout connect product selection to the final order, reducing unnecessary decisions along the way.</p></div>
+          </article>
+          <article class="sj-feature-card sj-feature-card-system">
+            <div class="sj-system-visual" aria-label="Illustration of the order lifecycle; not a screenshot of the live storefront">
+              <div class="sj-system-top"><span>ORDER FLOW / ILLUSTRATION</span><span class="sj-system-led" aria-hidden="true"></span></div>
+              <div class="sj-system-line"><span class="sj-system-check" aria-hidden="true">✓</span><div><strong>Checkout initiated</strong><small>Customer submits order</small></div></div>
+              <div class="sj-system-line"><span class="sj-system-check" aria-hidden="true">✓</span><div><strong>Payment handled</strong><small>Stripe integration</small></div></div>
+              <div class="sj-system-line"><span class="sj-system-check" aria-hidden="true">✓</span><div><strong>Confirmation delivered</strong><small>On-screen + email communication</small></div></div>
+              <div class="sj-system-footer">FLOW COMPLETE <span aria-hidden="true">↗</span></div>
             </div>
-        </section>
+            <div class="sj-feature-content"><span>03 / POST-PURCHASE</span><h3>Finish the transaction properly.</h3><p>Order confirmation and customer email make the final stage of the journey just as important as checkout.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <!-- 02 / STORY -->
-        <section class="sj-section" id="story">
-            <header class="sj-section-head">
-                <span>02 / STORY</span>
-                <h2>From cultural identity to a functioning fashion business.</h2>
-            </header>
+    <!-- 08 / 10 QUESTIONS -->
+    <section class="sj-section sj-questions" id="questions" aria-labelledby="sj-questions-heading">
+      <div class="sj-section-label">08 / BUILD NOTES</div>
+      <div class="sj-section-body">
+        <p class="sj-mini">10 QUESTIONS / 10 ANSWERS</p>
+        <h2 id="sj-questions-heading">How do you build a project like SPACE JOB?</h2>
+        <p class="sj-section-desc">Ten engineering questions about a store like SPACE JOB. Answers distinguish features documented in the project from architectural best practices and example technologies.</p>
+        <div class="sj-qa-grid">
+          <article class="sj-qa"><span>01 / OBJECTIVE</span><h3>What problem did SPACE JOB need to solve?</h3><p>It needed a functioning e-commerce journey, not only a visual brand page. The documented experience covers product discovery, cart, checkout, Stripe payment and order communication. Those steps define the customer-facing scope.</p></article>
+          <article class="sj-qa"><span>02 / PRODUCT THINKING</span><h3>How do you plan the development?</h3><p>I would start with the purchase path and turn each step into a requirement: catalog, product detail, cart state, payment handoff, success and error feedback, and email confirmation. The sequence helps identify which parts must communicate with one another.</p></article>
+          <article class="sj-qa"><span>03 / FRONTEND</span><h3>How is a storefront frontend structured?</h3><p>Separate the experience into reusable concerns: navigation, product cards, product details, cart summary and checkout entry. Responsive layouts and clear state changes matter more than a decorative interface. The live production framework is not identified in the supplied files.</p></article>
+          <article class="sj-qa"><span>04 / RESPONSIVENESS</span><h3>How do you make the store work on mobile?</h3><p>Design around flexible grids, readable product information, touch-friendly controls and a checkout that fits smaller screens. Test the browsing-to-payment path across viewport sizes rather than validating only the homepage.</p></article>
+          <article class="sj-qa"><span>05 / BACKEND</span><h3>What responsibilities belong on the server?</h3><p>In a typical custom commerce architecture, the backend validates prices and inventory, creates payment requests, manages order status and handles third-party events. These are recommended responsibilities; the project's specific API routes, language and runtime have not been verified.</p></article>
+          <article class="sj-qa"><span>06 / DATABASE</span><h3>What data does an e-commerce system need?</h3><p>At minimum, a comparable system needs reliable product and order records with item quantities, totals and payment references. A relational database such as PostgreSQL is one possible choice, but the actual SPACE JOB database or commerce platform is not documented.</p></article>
+          <article class="sj-qa"><span>07 / CART & CHECKOUT</span><h3>How do selected items become an order?</h3><p>Cart selections need to be converted into an authoritative order with validated totals before payment. The documented user flow proceeds from product to cart to checkout, then confirmation. The precise persistence mechanism remains unverified.</p></article>
+          <article class="sj-qa"><span>08 / STRIPE</span><h3>How should Stripe connect to checkout?</h3><p>Stripe is a documented payment integration. A secure implementation should initiate payment from a trusted server context and verify the final result on the server, commonly through provider events. This is integration guidance, not a claim that a particular webhook was implemented.</p></article>
+          <article class="sj-qa"><span>09 / EMAIL & OPERATIONS</span><h3>What happens after payment?</h3><p>The described experience includes order confirmation and transactional email. In a robust system, notification should follow a confirmed order state and be safe to retry. The specific email provider, job processing and delivery logic are not named in the source files.</p></article>
+          <article class="sj-qa"><span>10 / QUALITY & LAUNCH</span><h3>What must be checked before deployment?</h3><p>I would test mobile layouts, product navigation, cart changes, rejected and successful payments, duplicate events, confirmation screens and email delivery. Monitoring, accessibility and performance checks are sensible next steps; no production test log or infrastructure setup was provided.</p></article>
+        </div>
+      </div>
+    </section>
 
-            <div class="sj-story-grid">
-                <div class="sj-story-copy">
-                    <p>
-                        SPACE JOB began when I looked toward my roots and found inspiration
-                        in Cuba — its energy, color and identity.
-                    </p>
-                    <p>
-                        What started as apparel design grew into a complete brand system:
-                        visual identity, campaign direction, an online storefront, payments
-                        and the customer purchase experience.
-                    </p>
-                </div>
+    <!-- 09 / OUTCOME -->
+    <section class="sj-outcome" aria-labelledby="sj-outcome-heading">
+      <div class="sj-outcome-top"><span>09 / THE RESULT</span><span>LIVE PROJECT / E-COMMERCE</span></div>
+      <h2 id="sj-outcome-heading">From browsing<br>to buying<span>.</span></h2>
+      <p>The documented live storefront connects product discovery with checkout, Stripe payments and customer order communication. The implementation notes above make clear which technical details are verified and which are reference patterns.</p>
+      <a href="https://www.space-job.com" target="_blank" rel="noopener noreferrer" class="sj-outcome-link">Explore the live store <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
 
-                <div class="sj-story-note">
-                    <span>PROJECT SCOPE</span>
-                    <p>
-                        I created the visual identity, apparel graphics and digital experience,
-                        then developed the storefront and integrated the commerce flow.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 03 / ORIGIN -->
-        <section class="sj-section">
-            <header class="sj-section-head">
-                <span>03 / ORIGIN</span>
-                <h2>Rooted in Cuba.</h2>
-            </header>
-
-            <div class="sj-origin">
-                <img src="assets/images/spacejob/campaign-hero.png" alt="SPACE JOB campaign">
-                <div class="sj-quote">
-                    <img src="assets/images/spacejob/logo.png" alt="" aria-hidden="true">
-                    <p>
-                        “I wanted the clothing to carry identity, color and history —
-                        not just graphics.”
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 04 / IDENTITY -->
-        <section class="sj-section" id="identity">
-            <header class="sj-section-head">
-                <span>04 / IDENTITY</span>
-                <h2>A visual system that works on fabric and on screen.</h2>
-            </header>
-
-            <div class="sj-identity">
-                <div class="sj-logo-stage">
-                    <img src="assets/images/spacejob/logo.png" alt="SPACE JOB logo">
-                </div>
-
-                <div class="sj-identity-copy">
-                    <p>
-                        The identity uses a compact symbol, strong typography and flexible
-                        graphic treatments that can move between garments, campaign imagery
-                        and the online store.
-                    </p>
-
-                    <div class="sj-token-row">
-                        <span>SYMBOL</span>
-                        <span>TYPE</span>
-                        <span>COLOR</span>
-                        <span>CAMPAIGN</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 05 / COLLECTION -->
-        <section class="sj-section" id="collection">
-            <header class="sj-section-head">
-                <span>05 / COLLECTION</span>
-                <h2>Wear the story.</h2>
-            </header>
-
-            <div class="sj-collection">
-                <figure class="sj-look sj-look-large">
-                    <img src="assets/images/6.png" alt="SPACE JOB apparel design">
-                </figure>
-
-                <figure class="sj-look">
-                    <img src="assets/images/spacejob/product-blue.png" alt="Blue SPACE JOB shirt">
-                </figure>
-
-                <figure class="sj-look">
-                    <img src="assets/images/spacejob/product-red.png" alt="Red SPACE JOB shirt">
-                </figure>
-
-                <figure class="sj-look">
-                    <img src="assets/images/4.png" alt="SPACE JOB apparel design">
-                </figure>
-
-                <figure class="sj-look">
-                    <img src="assets/images/7.png" alt="SPACE JOB apparel design">
-                </figure>
-
-                <figure class="sj-look">
-                    <img src="assets/images/5.png" alt="SPACE JOB apparel design">
-                </figure>
-            </div>
-        </section>
-
-        <!-- 06 / DIGITAL -->
-        <section class="sj-section" id="digital">
-            <header class="sj-section-head">
-                <span>06 / DIGITAL EXPERIENCE</span>
-                <h2>The brand continues through the storefront.</h2>
-            </header>
-
-            <div class="sj-digital-intro">
-                <p>
-                    I translated the same visual language into a responsive shopping
-                    experience, from discovery to checkout.
-                </p>
-            </div>
-
-            <div class="sj-screens">
-                <article class="sj-screen sj-screen-wide">
-                    <span>01 / HOME</span>
-                    <p>Storefront homepage screenshot</p>
-                </article>
-                <article class="sj-screen">
-                    <span>02 / PRODUCT</span>
-                    <p>Product page screenshot</p>
-                </article>
-                <article class="sj-screen">
-                    <span>03 / CART</span>
-                    <p>Cart screenshot</p>
-                </article>
-                <article class="sj-screen sj-screen-wide">
-                    <span>04 / CHECKOUT</span>
-                    <p>Checkout / payment screenshot</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- 07 / COMMERCE -->
-        <section class="sj-section">
-            <header class="sj-section-head">
-                <span>07 / COMMERCE</span>
-                <h2>From product discovery to payment confirmation.</h2>
-            </header>
-
-            <div class="sj-commerce">
-                <ol class="sj-flow">
-                    <li>Browse</li>
-                    <li>Product</li>
-                    <li>Cart</li>
-                    <li>Checkout</li>
-                    <li>Stripe</li>
-                    <li>Confirmation</li>
-                    <li>Email</li>
-                </ol>
-
-                <div class="sj-commerce-copy">
-                    <article>
-                        <span>PAYMENTS</span>
-                        <h3>Stripe integration</h3>
-                        <p>
-                            Real customer payments are processed as part of the store's
-                            purchase flow.
-                        </p>
-                    </article>
-
-                    <article>
-                        <span>POST-PURCHASE</span>
-                        <h3>Customer communication</h3>
-                        <p>
-                            The experience continues after checkout with order confirmation
-                            and transactional email communication.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- 08 / EXISTING BENTO -->
-        <section class="sj-section sj-archive" id="archive">
-            <header class="sj-section-head">
-                <span>08 / VISUAL ARCHIVE</span>
-                <h2>Campaign & exploration.</h2>
-            </header>
-
-            <div class="bento-grid">
-                <div class="bento-item large-square"><img src="/assets/images/bento/bento1.jpg" alt="SPACE JOB visual archive 1"></div>
-                <div class="bento-item tall"><img src="/assets/images/bento/bento2.png" alt="SPACE JOB visual archive 2"></div>
-                <div class="bento-item"><img src="/assets/images/bento/bento3.jpg" alt="SPACE JOB visual archive 3"></div>
-                <div class="bento-item"><img src="/assets/images/bento/bento4.png" alt="SPACE JOB visual archive 4"></div>
-                <div class="bento-item wide"><img src="/assets/images/bento/bento5.jpg" alt="SPACE JOB visual archive 5"></div>
-                <div class="bento-item"><img src="/assets/images/bento/bento6.jpg" alt="SPACE JOB visual archive 6"></div>
-                <div class="bento-item"><img src="/assets/images/bento/bento7.jpg" alt="SPACE JOB visual archive 7"></div>
-                <div class="bento-item"><img src="/assets/images/bento/bento8.jpg" alt="SPACE JOB visual archive 8"></div>
-                <div class="bento-item"><img src="/assets/images/bento/bento9.jpg" alt="SPACE JOB visual archive 9"></div>
-                <div class="bento-item"><img src="/assets/images/bento/bento10.png" alt="SPACE JOB visual archive 10"></div>
-                <div class="bento-item"><img src="/assets/images/bento/bento11.jpg" alt="SPACE JOB visual archive 11"></div>
-                <div class="bento-item"><img src="/assets/images/bento/bento12.jpg" alt="SPACE JOB visual archive 12"></div>
-            </div>
-        </section>
-
-        <!-- 09 / LIVE -->
-        <section class="sj-live">
-            <img src="assets/images/spacejob/logo.png" alt="SPACE JOB logo">
-            <span>09 / LIVE PROJECT</span>
-            <h2>SPACE JOB IS LIVE.</h2>
-            <a href="https://www.space-job.com" target="_blank" rel="noopener noreferrer">VISIT THE STORE ↗</a>
-            <small>www.space-job.com</small>
-        </section>
-
-    </main>
-
-    <footer class="footer sj-footer">
-        <img src="assets/images/logito.png" alt="SPACE JOB logo" class="logo">
-        <p class="footer-text">© <span id="year"></span> SPACE JOB — All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+  <footer class="sj-footer">
+    <a href="index.html" class="sj-brand">OBM<span aria-hidden="true">_</span></a>
+    <p>© <span id="year">2026</span> Oscar Boza Martinez · Development case study</p>
+    <a href="projects.html">All projects <span aria-hidden="true">↗</span></a>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
