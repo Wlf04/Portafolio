@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050705">
+  <meta name="description" content="Tax Tool — a web application for guided tax intake, client management, document generation and tax-season reporting. Explore the project and its roadmap.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tax Tool — Web Application Case Study">
+  <meta property="og:description" content="A streamlined workspace for tax intake, client profiles and tax documents.">
+  <title>Tax Tool — Web Application Case Study</title>
+  <link rel="icon" href="assets/images/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme:dark; --accent:#0dff00; --paper:#edf4ee; --muted:#8f9a90; --dim:#657267; --line:#29312b; --bg:#050705; --panel:#0b0f0c; --font:'Space Mono',ui-monospace,SFMono-Regular,Consolas,monospace; }
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--paper); font-family:var(--font); -webkit-font-smoothing:antialiased; }
+    body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:none; background:radial-gradient(circle at 70% 12%,rgba(13,255,0,.05),transparent 40%),repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.009) 4px); }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible { outline:2px solid #00ffff; outline-offset:5px; }
+    .skip-link { position:absolute; top:-80px; left:12px; padding:12px; z-index:100; background:var(--accent); color:#000; }
+    .skip-link:focus { top:10px; }
+    .shell { width:min(1180px,calc(100% - 64px)); margin-inline:auto; }
+    .topbar { min-height:87px; display:flex; justify-content:space-between; align-items:center; gap:24px; border-bottom:1px solid var(--line); }
+    .brand { font-size:1rem; letter-spacing:.16em; font-weight:700; }
+    .brand span { color:var(--accent); animation:blink 1.2s steps(1,end) infinite; }
+    .toplinks { display:flex; align-items:center; flex-wrap:wrap; gap:27px; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; }
+    .toplinks a:first-child { color:var(--muted); }
+    .toplinks a:hover,.footer a:hover { color:var(--accent); }
+    .toplinks .live-link { color:var(--accent); }
+    .toplinks .live-link span { display:inline-block; margin-left:4px; }
+    main { overflow:hidden; }
+    .eyebrow { color:var(--accent); font-size:.69rem; font-weight:700; letter-spacing:.15em; line-height:1.7; text-transform:uppercase; }
+    .hero { padding:92px 0 84px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.04fr); gap:54px; align-items:center; border-bottom:1px solid var(--line); }
+    .hero-kicker { display:flex; align-items:center; gap:10px; }
+    .hero-kicker::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 17px var(--accent); }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { margin:28px 0 22px; font-size:clamp(3.2rem,7.8vw,6.7rem); line-height:.96; font-weight:400; letter-spacing:-.09em; text-transform:uppercase; color:var(--accent); }
+    .hero h1 .slash { color:var(--paper); }
+    .hero .lede { max-width:530px; font-size:clamp(1rem,1.5vw,1.18rem); line-height:1.65; color:#f1f4f1; }
+    .hero .desc { max-width:545px; margin:20px 0 0; color:#a1aba2; font-size:.84rem; line-height:1.85; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:35px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:14px; min-height:48px; padding:12px 18px; border:1px solid var(--accent); font:700 .74rem var(--font); letter-spacing:.02em; text-transform:uppercase; transition:background .2s,color .2s,transform .2s; }
+    .button--primary { color:#031004; background:var(--accent); }
+    .button--secondary { color:var(--accent); background:transparent; }
+    .button:hover { transform:translateY(-2px); }
+    .button--primary:hover { background:#d6ffd2; border-color:#d6ffd2; }
+    .button--secondary:hover { background:rgba(13,255,0,.09); }
+    .hero-footnote { margin-top:28px; color:var(--dim); font-size:.67rem; line-height:1.7; }
+    .interface { position:relative; padding:15px; border:1px solid #304235; background:radial-gradient(circle at 50% 0%,rgba(13,255,0,.055),transparent 55%),#090d0a; box-shadow:22px 22px 0 rgba(13,255,0,.025); }
+    .app-window { border:1px solid #354039; background:#101512; overflow:hidden; }
+    .app-titlebar { display:flex; justify-content:space-between; align-items:center; gap:8px; padding:14px 17px; border-bottom:1px solid #354039; background:#131916; }
+    .dots { display:flex; gap:6px; }
+    .dots i { width:7px; height:7px; background:#42624a; border-radius:50%; }
+    .dots i:first-child { background:var(--accent); }
+    .window-label { text-transform:uppercase; font-size:.54rem; letter-spacing:.12em; color:#829387; }
+    .app-content { padding:27px 24px 28px; }
+    .app-head { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:23px; }
+    .app-brand { font-size:.64rem; letter-spacing:.03em; color:#e8f7e8; }
+    .app-pill { padding:5px 8px; border:1px solid rgba(13,255,0,.35); color:var(--accent); text-transform:uppercase; font-size:.5rem; letter-spacing:.05em; }
+    .app-heading { font-size:clamp(1.22rem,2vw,1.85rem); letter-spacing:-.05em; line-height:1.22; font-weight:400; margin:0 0 12px; }
+    .app-sub { color:#859589; font-size:.62rem; line-height:1.8; margin:0 0 23px; }
+    .app-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:7px; }
+    .step { border:1px solid #34453a; padding:14px 9px 15px; min-height:92px; background:#141c16; }
+    .step:first-child { border-color:var(--accent); background:#122516; }
+    .step-index { display:block; margin-bottom:15px; color:var(--accent); font-size:.62rem; }
+    .step-name { display:block; color:#e7f0e7; font-size:.54rem; line-height:1.55; }
+    .app-divider { margin:24px 0 18px; border-top:1px solid #304034; }
+    .app-bottom { display:grid; grid-template-columns:1.2fr .8fr; gap:10px; }
+    .app-tile { border:1px solid #34453a; padding:15px; background:#0d130f; }
+    .app-tile span { display:block; font-size:.55rem; color:#7e9885; text-transform:uppercase; letter-spacing:.06em; }
+    .app-tile strong { display:block; margin-top:10px; font-size:.8rem; font-weight:400; }
+    .app-tile strong b { color:var(--accent); font-weight:400; }
+    .interface-caption { display:flex; justify-content:space-between; gap:10px; padding:14px 1px 1px; color:#7c8e80; font-size:.58rem; letter-spacing:.07em; text-transform:uppercase; line-height:1.5; }
+    .facts { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-bottom:1px solid var(--line); }
+    .fact { min-height:111px; padding:29px 26px 28px 0; border-right:1px solid var(--line); }
+    .fact:not(:first-child) { padding-left:28px; }
+    .fact:last-child { border-right:0; }
+    .fact dt { margin-bottom:12px; color:#758178; font-size:.62rem; letter-spacing:.13em; text-transform:uppercase; }
+    .fact dd { margin:0; color:#e4ebe5; font-size:.77rem; }
+    .section { padding:92px 0; border-bottom:1px solid var(--line); }
+    .section-heading { display:grid; grid-template-columns:minmax(150px,.43fr) minmax(0,1fr); gap:42px; margin-bottom:36px; align-items:start; }
+    .section-heading h2 { margin:0; color:#f1f5f1; font-size:clamp(1.6rem,2.85vw,2.45rem); line-height:1.3; font-weight:400; letter-spacing:-.06em; }
+    .section-heading p { margin:15px 0 0; max-width:670px; color:#a5ada5; font-size:.82rem; line-height:1.9; }
+    .concept-card { margin-left:calc(30% + 9px); max-width:760px; padding:25px 29px; border-left:2px solid var(--accent); background:rgba(13,255,0,.035); color:#ced8d0; font-size:.84rem; line-height:1.9; }
+    .feature-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:1px solid var(--line); }
+    .feature { min-height:226px; padding:26px 22px 24px; border-right:1px solid var(--line); }
+    .feature:last-child { border-right:none; }
+    .number { display:block; margin-bottom:35px; color:var(--accent); font-size:.72rem; }
+    .feature h3 { color:#eaf0ea; font-size:.91rem; line-height:1.5; font-weight:400; margin-bottom:12px; }
+    .feature p { color:#8e9a91; font-size:.72rem; line-height:1.85; margin:0; }
+    .workflow { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:26px; }
+    .workflow-step { position:relative; padding:15px 8px 13px 0; border-top:1px solid #4e6753; }
+    .workflow-step .small { color:var(--accent); font-size:.67rem; display:block; margin-bottom:14px; }
+    .workflow-step h3 { font-size:.8rem; font-weight:400; color:#eaf4eb; margin:0 0 7px; }
+    .workflow-step p { font-size:.67rem; color:#8a978c; line-height:1.7; margin:0; }
+    .roadmap { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .road-card { border:1px solid var(--line); padding:25px 22px 26px; min-height:207px; background:#0a0d0b; }
+    .road-card .tag { color:var(--accent); font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; }
+    .road-card h3 { margin:22px 0 9px; font-size:.9rem; line-height:1.55; font-weight:400; }
+    .road-card p { color:#91a093; font-size:.72rem; line-height:1.8; margin:0; }
+    .scope-note { margin:21px 0 0; color:#79887e; font-size:.66rem; line-height:1.85; }
+    .closing { display:flex; justify-content:space-between; align-items:center; gap:28px; padding:72px 0 83px; }
+    .closing .eyebrow { margin-bottom:15px; display:block; }
+    .closing h2 { margin:0; font-size:clamp(1.6rem,3.3vw,2.7rem); line-height:1.18; letter-spacing:-.065em; font-weight:400; }
+    .closing .button { flex-shrink:0; }
+    .footer { border-top:1px solid var(--line); padding:28px 0 40px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:15px; color:#7d8980; font-size:.68rem; }
+    .footer a { color:#b9c3ba; }
+    @keyframes blink { 50% { opacity:0; } }
+    @media(max-width:1060px) { .hero { grid-template-columns:1fr; padding:68px 0 70px; } .hero-copy { max-width:720px; } .interface { max-width:780px; } .feature-grid { grid-template-columns:repeat(2,1fr); } .feature:nth-child(2) { border-right:0; } .feature:nth-child(-n+2) { border-bottom:1px solid var(--line); } .concept-card { margin-left:0; } }
+    @media(max-width:680px) { .shell { width:calc(100% - 36px); } .topbar { min-height:71px; } .toplinks { gap:16px; font-size:.63rem; } .toplinks a:nth-child(2) { display:none; } .hero { padding:57px 0 59px; gap:39px; } h1 { font-size:clamp(3.25rem,15vw,5rem); } .hero .desc { font-size:.79rem; } .actions { gap:10px; } .button { width:100%; } .interface { padding:8px; } .app-content { padding:20px 14px; } .app-steps { grid-template-columns:repeat(2,1fr); } .step { min-height:78px; } .app-bottom { grid-template-columns:1fr 1fr; } .facts { grid-template-columns:1fr; } .fact,.fact:not(:first-child) { border-right:0; border-bottom:1px solid var(--line); padding:19px 0; min-height:auto; } .fact:last-child { border-bottom:0; } .section { padding:62px 0; } .section-heading { display:block; margin-bottom:28px; } .section-heading .eyebrow { display:block; margin-bottom:18px; } .section-heading p { margin-top:16px; } .concept-card { padding:19px 21px; font-size:.78rem; } .feature-grid { grid-template-columns:1fr; } .feature { min-height:0; border-right:0; border-bottom:1px solid var(--line); padding:23px; } .feature:last-child { border-bottom:0; } .feature:nth-child(2) { border-bottom:1px solid var(--line); } .number { margin-bottom:18px; } .workflow { grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:20px; } .roadmap { grid-template-columns:1fr; } .road-card { min-height:0; } .closing { display:block; padding:59px 0 69px; } .closing h2 { margin-bottom:26px; } .closing .button { width:100%; } .footer { padding-bottom:32px; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation:none!important; transition:none!important; } }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="topbar shell" aria-label="Project navigation">
+    <a href="index.html" class="brand" aria-label="Back to portfolio">OBM<span>_</span></a>
+    <nav class="toplinks" aria-label="Page links">
+      <a href="index.html#work">← Back to work</a>
+      <a href="#features">Overview</a>
+      <a href="https://taxtool-iota.vercel.app/" class="live-link" target="_blank" rel="noopener noreferrer">Open app <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main" class="shell">
+    <section class="hero" aria-labelledby="case-title">
+      <div class="hero-copy">
+        <p class="eyebrow hero-kicker">02 / SELECTED WORK · WEB APPLICATION</p>
+        <h1 id="case-title">TAX<span class="slash"> / </span>TOOL</h1>
+        <p class="lede">A simpler workflow for tax intake and client management.</p>
+        <p class="desc">A web application that brings client profiles, guided tax-information intake, document generation and an at-a-glance dashboard into one workspace.</p>
+        <div class="actions">
+          <a class="button button--primary" href="https://taxtool-iota.vercel.app/" target="_blank" rel="noopener noreferrer">Open live application <span aria-hidden="true">↗</span></a>
+          <a class="button button--secondary" href="#features">Explore case study <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="hero-footnote">Live project · Open the application in a separate tab</p>
+      </div>
+      <div class="interface" aria-label="Illustration of the Tax Tool workflow">
+        <div class="app-window">
+          <div class="app-titlebar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-label">TAX INTAKE MANAGER / OVERVIEW</span></div>
+          <div class="app-content">
+            <div class="app-head"><span class="app-brand">BF / BOZA FIRM</span><span class="app-pill">WORKFLOW / 4 STEPS</span></div>
+            <h2 class="app-heading">From client details<br>to ready-to-export files.</h2>
+            <p class="app-sub">A connected intake flow for preparing and organizing tax information.</p>
+            <div class="app-steps">
+              <div class="step"><span class="step-index">01</span><span class="step-name">Client<br>details</span></div>
+              <div class="step"><span class="step-index">02</span><span class="step-name">Contract<br>&amp; 8879</span></div>
+              <div class="step"><span class="step-index">03</span><span class="step-name">Tax<br>information</span></div>
+              <div class="step"><span class="step-index">04</span><span class="step-name">Review<br>&amp; save</span></div>
+            </div>
+            <div class="app-divider"></div>
+            <div class="app-bottom">
+              <div class="app-tile"><span>Workspace</span><strong>Clients <b>/</b> Documents</strong></div>
+              <div class="app-tile"><span>Output</span><strong>PDF <b>↗</b> CSV</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="interface-caption"><span>Workflow illustration</span><span>Not an application screenshot</span></div>
+      </div>
+    </section>
+
+    <dl class="facts" aria-label="Project details">
+      <div class="fact"><dt>Project type</dt><dd>Web Application</dd></div>
+      <div class="fact"><dt>Focus</dt><dd>Tax Intake &amp; Client Management</dd></div>
+      <div class="fact"><dt>Availability</dt><dd>Live on Vercel</dd></div>
+    </dl>
+
+    <section class="section" aria-labelledby="idea-title">
+      <div class="section-heading">
+        <span class="eyebrow">01 / THE IDEA</span>
+        <div><h2 id="idea-title">One workspace, fewer disconnected steps.</h2><p>Tax preparation often involves collecting client information, completing forms and organizing documents across multiple steps. Tax Tool brings those activities together in a single guided interface.</p></div>
+      </div>
+      <div class="concept-card">The goal is straightforward: make the intake process easier to navigate, reduce repetitive manual work and keep the information needed for each client organized from start to finish.</div>
+    </section>
+
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="section-heading">
+        <span class="eyebrow">02 / CURRENT BUILD</span>
+        <div><h2 id="features-title">What the application does today.</h2><p>The published interface combines client management, a four-step session, printable documents and a basic reporting dashboard.</p></div>
+      </div>
+      <div class="feature-grid">
+        <article class="feature"><span class="number">[ 01 ]</span><h3>Client records</h3><p>Create and edit client profiles, including contact and filing information.</p></article>
+        <article class="feature"><span class="number">[ 02 ]</span><h3>Guided intake</h3><p>Move through personal details, authorizations, tax data and final review.</p></article>
+        <article class="feature"><span class="number">[ 03 ]</span><h3>Tax documents</h3><p>Prepare and download forms such as W-2, Form 8879 and engagement letters.</p></article>
+        <article class="feature"><span class="number">[ 04 ]</span><h3>Dashboard &amp; export</h3><p>Review client and seasonal summaries, with CSV and PDF output options.</p></article>
+      </div>
+      <div class="workflow" aria-label="Four-step tax intake process">
+        <div class="workflow-step"><span class="small">01 →</span><h3>Collect</h3><p>Client information</p></div>
+        <div class="workflow-step"><span class="small">02 →</span><h3>Authorize</h3><p>Contract &amp; e-file forms</p></div>
+        <div class="workflow-step"><span class="small">03 →</span><h3>Organize</h3><p>Income &amp; deductions</p></div>
+        <div class="workflow-step"><span class="small">04 ✓</span><h3>Finalize</h3><p>Review, save &amp; export</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="section-heading">
+        <span class="eyebrow">03 / NEXT ITERATION</span>
+        <div><h2 id="roadmap-title">Where the project can go next.</h2><p>A concise set of proposed priorities for taking the current experience further.</p></div>
+      </div>
+      <div class="roadmap">
+        <article class="road-card"><span class="tag">01 / SECURITY</span><h3>Access &amp; data protection</h3><p>Evaluate authentication, user permissions and safeguards for sensitive taxpayer data.</p></article>
+        <article class="road-card"><span class="tag">02 / MAINTENANCE</span><h3>Tax-year updates</h3><p>Refresh year-specific reference content and make future tax-season updates easier to maintain.</p></article>
+        <article class="road-card"><span class="tag">03 / EXPERIENCE</span><h3>More resilient sessions</h3><p>Explore stronger validation, recovery from interruptions and more complete workflow testing.</p></article>
+      </div>
+      <p class="scope-note">Roadmap items are proposals for future development, not claims that these features are absent or that security measures have been audited. The public interface currently includes some 2024-labeled tax references.</p>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div><span class="eyebrow">04 / EXPLORE THE PROJECT</span><h2 id="closing-title">See Tax Tool in action.</h2></div>
+      <a class="button button--primary" href="https://taxtool-iota.vercel.app/" target="_blank" rel="noopener noreferrer">Launch live web app <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+  <footer class="footer shell"><span>© <span id="year">2026</span> · Portfolio project / Tax Tool</span><a href="index.html#work">← Back to selected work</a></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
