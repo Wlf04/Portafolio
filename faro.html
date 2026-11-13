@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050805">
+<meta name="description" content="Explore FARO, a working bilingual study tool for CompTIA Security+ SY0-701, and launch the live application.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FARO — Security+ Study Tool | Project Overview">
+<meta property="og:description" content="A lightweight study tool for CompTIA Security+ SY0-701 with 500 bilingual practice questions.">
+<title>FARO — Security+ Study Tool | Project Overview</title>
+<link rel="icon" href="assets/images/icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {color-scheme:dark; --bg:#050805; --panel:#0c110d; --line:#29362d; --accent:#0dff00; --text:#e9f3eb; --soft:#a1aea3; --muted:#788b7c; --font:'Space Mono',monospace}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {margin:0; background:var(--bg); color:var(--text); font-family:var(--font); -webkit-font-smoothing:antialiased}
+body:before {content:''; position:fixed; z-index:-1; inset:0; pointer-events:none; background:radial-gradient(circle at 80% 8%,rgba(13,255,0,.07),transparent 38%),repeating-linear-gradient(0deg,transparent 0 4px,rgba(255,255,255,.009) 5px)}
+a {color:inherit; text-decoration:none}
+a:focus-visible {outline:2px solid #00e5eb; outline-offset:4px}
+.shell {width:min(1120px,calc(100% - 56px)); margin-inline:auto}
+.skip {position:absolute; top:-80px; left:12px; padding:12px; background:var(--accent); color:#000; z-index:100}
+.skip:focus {top:12px}
+.topbar {height:84px; display:flex; justify-content:space-between; align-items:center; gap:20px; border-bottom:1px solid var(--line)}
+.brand {font-size:.92rem; font-weight:700; letter-spacing:.14em}.brand span {color:var(--accent)}
+.links {display:flex; flex-wrap:wrap; align-items:center; gap:27px; font-size:.74rem; color:var(--soft); text-transform:uppercase}
+.links a:hover,.footer a:hover {color:var(--accent)}
+.hero {padding:87px 0 78px; display:grid; grid-template-columns:1fr 1fr; gap:65px; align-items:center; border-bottom:1px solid var(--line)}
+.kicker {margin:0; font-size:.67rem; letter-spacing:.15em; text-transform:uppercase; color:var(--accent)}
+h1,h2,h3,p {margin-top:0}
+h1 {margin:25px 0 22px; color:var(--accent); font-size:clamp(4rem,10vw,8rem); line-height:.95; letter-spacing:-.095em; font-weight:400}
+h1 span {color:#edfbee}
+.lead {margin:0; max-width:34ch; color:#f2f9f3; font-size:clamp(1.14rem,2vw,1.55rem); line-height:1.48; letter-spacing:-.04em}
+.desc {max-width:63ch; margin:23px 0 0; color:var(--soft); font-size:.84rem; line-height:1.85}
+.actions {display:flex; flex-wrap:wrap; gap:12px; margin-top:30px}
+.btn {display:inline-flex; justify-content:center; align-items:center; padding:14px 19px; font-size:.71rem; letter-spacing:.035em; border:1px solid var(--accent); text-transform:uppercase; min-height:49px; transition:background .2s,transform .2s}
+.btn--main {background:var(--accent); color:#000; font-weight:700}.btn--alt {color:var(--accent)}.btn:hover {transform:translateY(-2px)}.btn--alt:hover {background:rgba(13,255,0,.08)}
+.art {position:relative; min-height:378px; padding:22px; border:1px solid #315039; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between; background:radial-gradient(circle at 50% 47%,rgba(13,255,0,.12),transparent 36%),repeating-linear-gradient(0deg,transparent 0 35px,rgba(13,255,0,.035) 36px),repeating-linear-gradient(90deg,transparent 0 35px,rgba(13,255,0,.035) 36px),#09120b}
+.art-top,.art-bottom {z-index:2; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; color:#91b396; font-size:.59rem; letter-spacing:.12em; text-transform:uppercase}
+.art-core {position:absolute; inset:0; display:grid; place-items:center}
+.rings {position:absolute; width:245px; height:245px; display:grid; place-items:center}
+.ring {position:absolute; width:100%; height:100%; border:1px solid rgba(13,255,0,.26); border-radius:50%}
+.ring:nth-child(2){width:68%;height:68%;border-color:rgba(13,255,0,.43)}
+.ring:nth-child(3){width:36%;height:36%;border-color:rgba(13,255,0,.75)}
+.ring:nth-child(4){width:7px;height:7px;background:#0dff00;box-shadow:0 0 25px #0dff00;border:0}
+.art-word {position:relative; font-size:clamp(4.2rem,8vw,7rem); font-weight:700; line-height:1; letter-spacing:-.08em; text-shadow:0 6px 22px #020903}.art-word b{color:var(--accent)}
+.art-bottom span:last-child {color:var(--accent)}.art-caption {margin:10px 0 0; color:#738977; font-size:.61rem; text-align:right}
+.facts {display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-bottom:1px solid var(--line)}
+.fact {padding:26px 24px; border-right:1px solid var(--line)}.fact:first-child{padding-left:0}.fact:last-child{border-right:0}
+.fact dt {color:var(--muted); font-size:.63rem; letter-spacing:.12em; text-transform:uppercase; margin-bottom:12px}.fact dd{margin:0;font-size:.82rem}
+.section {padding:78px 0; border-bottom:1px solid var(--line)}
+.section-head {display:grid; grid-template-columns:170px 1fr; gap:55px; margin-bottom:28px}
+h2 {font-size:clamp(1.7rem,3vw,2.4rem); font-weight:400; color:#f1f8f2; line-height:1.2; letter-spacing:-.05em; text-transform:none; margin:0 0 16px}
+.section-head p {color:var(--soft); font-size:.83rem; line-height:1.84; max-width:70ch; margin:0}
+.statement {margin-left:225px; padding:25px 27px; border-left:2px solid var(--accent); background:rgba(13,255,0,.035); color:#d6ead9; font-size:.84rem; line-height:1.8}
+.status {display:flex; flex-wrap:wrap; align-items:center; gap:14px; padding:23px 26px; margin-left:225px; border:1px solid #31503a; background:#0c150f}
+.status-dot {flex:0 0 auto; width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 12px rgba(13,255,0,.9)}.status strong{font-size:.75rem;color:#e8f8eb}.status p {margin:0;color:var(--soft);font-size:.75rem;line-height:1.6}
+.roadmap {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line)}
+.roadmap article {padding:25px 25px 30px; min-height:195px; border-right:1px solid var(--line); background:rgba(255,255,255,.008)}.roadmap article:last-child{border-right:0}
+.roadmap .n {font-size:.64rem;letter-spacing:.12em;color:var(--accent)}.roadmap h3 {font-size:.97rem;line-height:1.45;font-weight:400;color:#eef8ef;margin:24px 0 10px;text-transform:none}.roadmap p {color:var(--soft);font-size:.75rem;line-height:1.75;margin:0}
+.note {margin:19px 0 0;color:#829586;font-size:.66rem;line-height:1.75}
+.closing {padding:60px 0 76px;display:flex;justify-content:space-between;align-items:center;gap:25px}.closing h2{margin-top:15px;margin-bottom:0}.footer{padding:28px 0 35px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; justify-content:space-between; gap:18px;color:#718174;font-size:.69rem}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:36px;padding:65px 0}.art{max-width:690px}.statement,.status{margin-left:0}.section-head{grid-template-columns:1fr;gap:13px}.roadmap{grid-template-columns:1fr}.roadmap article{min-height:auto;border-right:0;border-bottom:1px solid var(--line)}.roadmap article:last-child{border-bottom:0}}
+@media(max-width:600px){.shell{width:calc(100% - 34px)}.topbar{height:75px}.links{gap:16px;font-size:.62rem}.hero{padding:52px 0}.art{min-height:290px}.rings{width:190px;height:190px}.art-word{font-size:4.4rem}.art-top,.art-bottom{font-size:.49rem}.facts{grid-template-columns:1fr}.fact,.fact:first-child{padding:19px 0;border-right:0;border-bottom:1px solid var(--line)}.fact:last-child{border-bottom:0}.section{padding:57px 0}.section-head{margin-bottom:24px}.statement,.status{padding:19px}.closing{display:block;padding:52px 0}.closing .btn{margin-top:28px;width:100%}.footer{padding:24px 0}.links a:last-child{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<header class="topbar shell" aria-label="Project navigation">
+  <a class="brand" href="index.html" aria-label="Back to portfolio">OBM<span>_</span></a>
+  <nav class="links" aria-label="Page navigation"><a href="index.html#work">← Back to work</a><a href="#about">The idea</a><a href="#roadmap">Next steps</a></nav>
+</header>
+<main id="main" class="shell">
+ <section class="hero" aria-labelledby="faro-title">
+   <div>
+     <p class="kicker">03 / SELECTED WORK · STUDY SOFTWARE</p>
+     <h1 id="faro-title">FARO<span>_</span></h1>
+     <p class="lead">A bilingual study companion for CompTIA Security+.</p>
+     <p class="desc">FARO is a lightweight, fully functional study app for CompTIA Security+ (SY0-701). Its published version features 500 bilingual practice questions, with a focused experience built to make exam preparation more approachable.</p>
+     <div class="actions"><a class="btn btn--main" href="https://faro-black.vercel.app/" target="_blank" rel="noopener noreferrer">Launch FARO ↗</a><a class="btn btn--alt" href="#about">Explore project ↓</a></div>
+   </div>
+   <div>
+     <div class="art" role="img" aria-label="Graphic project cover reading FARO Security Plus study software; not an application screenshot">
+       <div class="art-top"><span>FARO / STUDY SYSTEM</span><span>SECURITY+ PREP</span></div>
+       <div class="art-core"><div class="rings" aria-hidden="true"><i class="ring"></i><i class="ring"></i><i class="ring"></i><i class="ring"></i></div><div class="art-word">FARO<b>_</b></div></div>
+       <div class="art-bottom"><span>SIMPLICITY FIRST</span><span>FUNCTIONAL BUILD</span></div>
+     </div>
+     <p class="art-caption">Concept cover / Not an app screenshot</p>
+   </div>
+ </section>
+ <dl class="facts" aria-label="Project summary">
+  <div class="fact"><dt>Project type</dt><dd>Study software</dd></div>
+  <div class="fact"><dt>Focus</dt><dd>Security+ SY0-701 · Bilingual study</dd></div>
+  <div class="fact"><dt>Current state</dt><dd>Fully functional</dd></div>
+ </dl>
+ <section id="about" class="section" aria-labelledby="about-title">
+   <div class="section-head"><p class="kicker">01 / THE IDEA</p><div><h2 id="about-title">Make studying feel simpler.</h2><p>Preparing for a cybersecurity certification involves returning to concepts, building confidence and staying consistent. FARO was created as a focused tool for that process, without unnecessary complexity.</p></div></div>
+   <div class="statement">The idea: a practical piece of software dedicated to Security+ study, with a small scope and a complete, usable implementation.</div>
+ </section>
+ <section class="section" aria-labelledby="build-title">
+   <div class="section-head"><p class="kicker">02 / CURRENT BUILD</p><div><h2 id="build-title">Simple in scope. Working in practice.</h2><p>FARO is already functional. Instead of presenting it as a large platform, this project demonstrates a focused product idea brought to a working state.</p></div></div>
+   <div class="status"><span class="status-dot" aria-hidden="true"></span><strong>LIVE / FUNCTIONAL BUILD</strong><p>A published study experience with 500 bilingual questions for the Security+ SY0-701 exam.</p></div>
+ </section>
+ <section id="roadmap" class="section" aria-labelledby="roadmap-title">
+   <div class="section-head"><p class="kicker">03 / NEXT ITERATION</p><div><h2 id="roadmap-title">Ideas to build on.</h2><p>Possible directions for growing the experience while keeping FARO lightweight and easy to use.</p></div></div>
+   <div class="roadmap">
+     <article><span class="n">01 / PROGRESS</span><h3>Study progress</h3><p>Explore progress tracking by Security+ exam topic or domain.</p></article>
+     <article><span class="n">02 / PRACTICE</span><h3>Exam-style sessions</h3><p>Consider a timed practice mode to help with exam readiness.</p></article>
+     <article><span class="n">03 / FEEDBACK</span><h3>Smarter review</h3><p>Explore explanations and review suggestions based on study results.</p></article>
+   </div>
+   <p class="note">These are future ideas for exploration, not features being presented as part of the current build.</p>
+ </section>
+ <section class="closing" aria-labelledby="closing-title"><div><p class="kicker">04 / PROJECT OVERVIEW</p><h2 id="closing-title">A small project with room to grow.</h2></div><a href="https://faro-black.vercel.app/" class="btn btn--main" target="_blank" rel="noopener noreferrer">Open live app ↗</a></section>
+</main>
+<footer class="footer shell"><span>© <span id="year">2026</span> · FARO / Portfolio project</span><a href="index.html#work">← Back to work</a></footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

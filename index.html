@@ -16,6 +16,23 @@
     <link rel="stylesheet" href="style2.css">
     <link rel="icon" href="assets/images/icon.svg">
     <script src="https://kit.fontawesome.com/db173a3adc.js" crossorigin="anonymous" defer></script>
+<style>
+    /* FARO: project cover (graphic, not an application screenshot) */
+    .home-page .faro-preview { position:relative; isolation:isolate; overflow:hidden; width:100%; aspect-ratio:16/9; min-height:210px; padding:17px 20px; display:flex; flex-direction:column; justify-content:space-between; color:#eaffec; background:radial-gradient(circle at 51% 47%, rgba(13,255,0,.16),transparent 31%),repeating-linear-gradient(90deg,transparent 0 35px,rgba(13,255,0,.045) 36px),repeating-linear-gradient(0deg,transparent 0 35px,rgba(13,255,0,.045) 36px),#070d09; border:1px solid #24412b; font-family:'Space Mono',monospace; }
+    .home-page .faro-preview::after { content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(135deg,rgba(9,20,12,0) 42%,rgba(3,7,5,.7)); z-index:-1; }
+    .home-page .faro-preview__top,.home-page .faro-preview__bottom { z-index:2; display:flex; justify-content:space-between; gap:10px; align-items:center; font-size:clamp(.48rem,.9vw,.64rem); letter-spacing:.11em; color:#89ac90; }
+    .home-page .faro-preview__stage { position:relative; flex:1; display:grid; place-items:center; }
+    .home-page .faro-preview__signal { position:absolute; width:min(44%,205px); aspect-ratio:1; display:grid; place-items:center; opacity:.9; }
+    .home-page .faro-preview__signal span { position:absolute; inset:0; border:1px solid rgba(13,255,0,.23); border-radius:50%; }
+    .home-page .faro-preview__signal span:nth-child(2) { inset:20%; border-color:rgba(13,255,0,.45); }
+    .home-page .faro-preview__signal span:nth-child(3) { inset:40%; background:#0dff00; border:0; box-shadow:0 0 24px rgba(13,255,0,.5); }
+    .home-page .faro-preview__signal i { position:absolute; left:50%; top:50%; width:50%; height:1px; background:linear-gradient(90deg,#0dff00,transparent); transform-origin:left center; transform:rotate(-43deg); }
+    .home-page .faro-preview__wordmark { z-index:1; font-size:clamp(3.2rem,7vw,6.3rem); letter-spacing:-.08em; line-height:1; color:#ecffed; text-shadow:0 4px 20px #050a06; font-weight:700; }
+    .home-page .faro-preview__wordmark span { color:#0dff00; }
+    .home-page .faro-preview__status { color:#0dff00; }
+    @media(max-width:680px) { .home-page .faro-preview { min-height:185px; } .home-page .faro-preview__top,.home-page .faro-preview__bottom { font-size:.52rem; } }
+    @media(prefers-reduced-motion:reduce) { .home-page .faro-preview * { animation:none!important; } }
+</style>
 </head>
 <body class="home-page">
     <a class="skip-link" href="#top">Skip to content</a>
@@ -122,24 +139,31 @@
                         <span>02</span>
                         <span>WEB APP / TAX WORKFLOW</span>
                     </div>
-                    <h3>Tax Tool (DEMO)</h3>
+                    <h3>Tax Tool</h3>
                     <p>A tax intake management web app for organizing client records, guiding multi-step intake sessions, generating tax documents and reviewing dashboard statistics.</p>
                     <p class="project-stack">CLIENT INTAKE / PDF FORMS / DASHBOARD</p>
                     <a class="project-arrow-link" href="tax-tool.html">View case study <span aria-hidden="true">↗</span></a>
                 </article>
 
                 <article class="secondary-project">
-                    <a class="secondary-project__image" href="https://wlf04.github.io/QR-Code-Generator/" target="_blank" rel="noopener noreferrer">
-                        <img src="assets/images/projects/qr-generator.png" alt="QR Code Generator interface preview" loading="lazy" decoding="async">
+                    <a class="secondary-project__image" href="faro.html" aria-label="Explore FARO project overview">
+                        <div class="faro-preview" aria-hidden="true">
+                            <div class="faro-preview__top"><span>FARO / STUDY SYSTEM</span><span>SECURITY+ PREP</span></div>
+                            <div class="faro-preview__stage">
+                                <div class="faro-preview__signal"><span></span><span></span><span></span><i></i></div>
+                                <div class="faro-preview__wordmark">FARO<span>_</span></div>
+                            </div>
+                            <div class="faro-preview__bottom"><span>FOCUSED LEARNING</span><span class="faro-preview__status">FUNCTIONAL BUILD</span></div>
+                        </div>
                     </a>
                     <div class="project-kicker">
                         <span>03</span>
-                        <span>WEB TOOL</span>
+                        <span>STUDY SOFTWARE</span>
                     </div>
-                    <h3>QR Generator</h3>
-                    <p>A lightweight tool for creating QR codes from different types of content.</p>
-                    <p class="project-stack">HTML / CSS / JAVASCRIPT</p>
-                    <a class="project-arrow-link" href="https://wlf04.github.io/QR-Code-Generator/" target="_blank" rel="noopener noreferrer">View live project <span aria-hidden="true">↗</span></a>
+                    <h3>FARO</h3>
+                    <p>A fully functional, lightweight study tool designed for people preparing for the CompTIA Security+ certification.</p>
+                    <p class="project-stack">SECURITY+ / STUDY TOOL / FUNCTIONAL BUILD</p>
+                    <a class="project-arrow-link" href="faro.html">View project overview <span aria-hidden="true">↗</span></a>
                 </article>
             </div>
 
